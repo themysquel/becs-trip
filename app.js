@@ -28,19 +28,19 @@ const WEATHER_LOCATIONS = {
   },
 };
 
-const FX_FALLBACK = {
-  EUR_HUF: 364.37,
-};
-
 const state = {
   stays: [],
   index: 0,
   stageTouchStartX: null,
+
   rates: {
-    EUR_HUF: FX_FALLBACK.EUR_HUF,
+    EUR_HUF:
+      window.FX_FALLBACK_RATE ?? 364.37,
   },
+
   fxLive: false,
   fxDate: null,
+
   weatherLocation: "vienna",
   weatherCache: new Map(),
 };
@@ -61,7 +61,6 @@ const el = {
   weatherLocationName: document.querySelector("#weatherLocationName"),
   weatherLocationDetail: document.querySelector("#weatherLocationDetail"),
   weatherElevation: document.querySelector("#weatherElevation"),
-  fxStatus: document.querySelector("#fxStatus"),
 };
 
 const formatters = new Map();
@@ -466,27 +465,22 @@ function bindStayNavigation() {
 
 async function loadFxRate() {
   try {
-    const response = await fetch("https://api.frankfurter.dev/v2/rate/eur/huf");
-    if (!response.ok) throw new Error(`FX HTTP ${response.status}`);
-    const data = await response.json();
+    const fx =
+      await window.getEurHufRate();
 
-    if (!data.rate || Number.isNaN(Number(data.rate))) {
-      throw new Error("Invalid FX response");
-    }
-
-    state.rates.EUR_HUF = Number(data.rate);
-    state.fxLive = true;
-    state.fxDate = data.date || null;
-    el.fxStatus.textContent = `1 € = ${state.rates.EUR_HUF.toFixed(2)} Ft`;
+    state.rates.EUR_HUF = fx.rate;
+    state.fxLive = fx.live;
+    state.fxDate = fx.date;
 
     if (state.stays.length) {
       renderSwitcher();
       renderStay();
     }
   } catch (error) {
-    console.warn("FX fallback:", error);
-    state.fxLive = false;
-    el.fxStatus.textContent = `1 € ≈ ${FX_FALLBACK.EUR_HUF.toFixed(2)} Ft`;
+    console.warn(
+      "Nem sikerült alkalmazni az EUR/HUF árfolyamot:",
+      error
+    );
   }
 }
 

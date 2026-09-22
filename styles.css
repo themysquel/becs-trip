@@ -99,22 +99,66 @@ h2 {
   padding: 12px 14px;
   display: grid;
   align-content: center;
-  gap: 2px;
+  gap: 3px;
   border: 1px solid var(--line);
   border-radius: 15px;
-  background: rgba(20,24,32,.76);
-  box-shadow: 0 8px 30px rgba(0,0,0,.12);
+  background: rgba(20, 24, 32, .76);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
   white-space: nowrap;
 }
 
-.trip-pill strong { font-size: 14px; }
-.trip-pill span,
-.fx-pill { color: var(--muted); font-size: 10px; }
+.trip-pill strong {
+  font-size: 14px;
+}
+
+.trip-pill span {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+
+/* ==============================
+   EUR / HUF HEADER
+   ============================== */
 
 .fx-pill {
-  min-width: 130px;
-  text-align: center;
+  min-width: 165px;
+  text-align: left;
 }
+
+.fx-pill__label {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.fx-pill__rate {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.fx-pill__live,
+.fx-pill__fallback {
+  margin-top: 1px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.fx-pill__live {
+  color: var(--green-text);
+}
+
+.fx-pill__fallback {
+  color: var(--amber-text);
+}
+
+.fx-pill.is-fallback {
+  border-color: rgba(251, 191, 36, .28);
+}
+
 
 .weather {
   margin-top: 28px;
@@ -819,7 +863,23 @@ h2 {
 
   .trip-pill { padding: 10px 11px; }
   .trip-pill span { font-size: 9px; }
-  .fx-pill { min-width: 0; padding: 8px 10px; }
+  .fx-pill {
+    min-width: 0;
+    padding: 9px 11px;
+  }
+
+  .fx-pill__label {
+    font-size: 8px;
+  }
+
+  .fx-pill__rate {
+    font-size: 12px;
+  }
+
+  .fx-pill__live,
+  .fx-pill__fallback {
+    font-size: 8px;
+  }
 
   .weather {
     margin-top: 16px;
@@ -972,5 +1032,396 @@ h2 {
     scroll-behavior: auto !important;
     transition: none !important;
     animation: none !important;
+  }
+}
+
+
+/* =========================================================
+   TRAIN OFFERS
+   ========================================================= */
+
+#trainOffers {
+  width: 100%;
+}
+
+.train-section {
+  margin-top: 34px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.012)
+    );
+  overflow: hidden;
+}
+
+.train-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.train-eyebrow {
+  margin-bottom: 7px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--accent, #7dd3fc);
+}
+
+.train-header h2 {
+  margin: 0;
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  line-height: 1.1;
+}
+
+.train-header p {
+  margin: 8px 0 0;
+  color: var(--muted, #9aa4b2);
+}
+
+.train-sort {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 205px;
+}
+
+.train-sort label {
+  font-size: 0.76rem;
+  color: var(--muted, #9aa4b2);
+}
+
+.train-sort select {
+  width: 100%;
+  padding: 11px 36px 11px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  outline: none;
+  color: #f5f7fa;
+  background: #151a21;
+  font: inherit;
+  cursor: pointer;
+}
+
+.train-sort select:focus {
+  border-color: rgba(125, 211, 252, 0.55);
+}
+
+.train-carousel-wrapper {
+  position: relative;
+}
+
+.train-carousel {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  padding: 4px 2px 12px;
+}
+
+.train-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.train-card {
+  position: relative;
+  flex: 0 0 min(390px, calc(100vw - 88px));
+  min-height: 330px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 19px;
+  background: #11161d;
+  scroll-snap-align: start;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.train-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.train-type {
+  color: var(--muted, #9aa4b2);
+  font-size: 0.77rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.train-number {
+  margin-top: 4px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #f7f9fb;
+}
+
+.train-cheapest-badge {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  color: #86efac;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.train-route {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  align-items: center;
+  gap: 9px;
+  margin-top: 30px;
+}
+
+.train-stop {
+  min-width: 0;
+}
+
+.train-stop--arrival {
+  text-align: right;
+}
+
+.train-stop strong {
+  display: block;
+  font-size: 1.65rem;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.train-stop span {
+  display: block;
+  margin-top: 8px;
+  overflow: hidden;
+  color: var(--muted, #9aa4b2);
+  font-size: 0.76rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.train-route__middle {
+  text-align: center;
+}
+
+.train-route__duration,
+.train-route__changes {
+  display: block;
+  color: var(--muted, #9aa4b2);
+  font-size: 0.68rem;
+}
+
+.train-route__line {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.train-route__line span {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border: 2px solid #7dd3fc;
+  border-radius: 50%;
+}
+
+.train-route__line i {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(
+    to right,
+    #7dd3fc,
+    rgba(125, 211, 252, 0.25),
+    #7dd3fc
+  );
+}
+
+.train-price {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+  margin-top: 28px;
+}
+
+.train-price__total,
+.train-price__person {
+  padding: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.train-price span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--muted, #9aa4b2);
+  font-size: 0.69rem;
+}
+
+.train-price strong {
+  display: block;
+  color: #fff;
+  font-size: 1.23rem;
+}
+
+.train-price__total strong {
+  color: #7dd3fc;
+}
+
+.train-price em {
+  display: block;
+  margin-top: 3px;
+  color: #aab3bd;
+  font-size: 0.76rem;
+  font-style: normal;
+}
+
+.train-card__bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 17px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #8f99a6;
+  font-size: 0.7rem;
+}
+
+.train-card__position {
+  position: absolute;
+  right: 17px;
+  bottom: 14px;
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.65rem;
+}
+
+.train-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(10, 13, 17, 0.92);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  backdrop-filter: blur(8px);
+}
+
+.train-arrow:hover {
+  background: #1a212a;
+}
+
+.train-arrow--left {
+  left: -16px;
+}
+
+.train-arrow--right {
+  right: -16px;
+}
+
+.train-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 11px;
+  color: #707b88;
+  font-size: 0.7rem;
+}
+
+.train-loading,
+.train-error {
+  margin-top: 30px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: #11161d;
+}
+
+.train-error {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.train-error span {
+  color: var(--muted, #9aa4b2);
+}
+
+@media (max-width: 700px) {
+  .train-section {
+    margin-top: 24px;
+    padding: 18px 14px;
+    border-radius: 20px;
+  }
+
+  .train-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .train-sort {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .train-card {
+    flex-basis: calc(100vw - 58px);
+    min-height: 320px;
+    padding: 17px;
+  }
+
+  .train-arrow {
+    display: none;
+  }
+
+  .train-route {
+    gap: 6px;
+  }
+
+  .train-stop strong {
+    font-size: 1.42rem;
+  }
+
+  .train-stop span {
+    font-size: 0.69rem;
+  }
+
+  .train-price {
+    gap: 8px;
+  }
+
+  .train-price__total,
+  .train-price__person {
+    padding: 11px;
+  }
+
+  .train-price strong {
+    font-size: 1.05rem;
+  }
+
+  .train-card__bottom {
+    padding-right: 35px;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .train-footer {
+    flex-direction: column;
   }
 }
