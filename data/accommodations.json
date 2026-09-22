@@ -8,103 +8,256 @@
   },
   "accommodations": [
     {
-      "id": "stadtparadies-central-living-q14",
-      "shortName": "Stadtparadies Q14",
-      "name": "Stadtparadies l Central Living Q14",
-      "provider": "Booking",
-      "url": "https://www.booking.com/hotel/at/sunny-amp-cozy-penthouse-with-balcony-dg5.hu.html?aid=304142&label=mkt123sc-207b2c21-428b-4f22-ae52-8b56be06bf44&sid=02eb90506ffb436850a393d39524b464&all_sr_blocks=875744313_432893409_5_0_0&checkin=2026-10-03&checkout=2026-10-05&dest_id=-1995499&dest_type=city&dist=0&group_adults=5&group_children=0&hapos=21&highlighted_blocks=875744313_432893409_5_0_0&hpos=1&matching_block_id=875744313_432893409_5_0_0&no_rooms=1&req_adults=5&req_children=0&room1=A%2CA%2CA%2CA%2CA&sb_price_type=total&show_room=875744313&sr_order=popularity&sr_pri_blocks=875744313_432893409_5_0_0__33466&srepoch=1790099965&srpvid=9abb7cebb2f20300&type=total&ucfs=1&#RD875744313",
-      "area": "10. kerület · Favoriten",
-      "address": "14 Quellenstraße, 1100 Wien, Ausztria",
+      "id": "penthouse-sauna-praterstern",
+      "shortName": "Penthouse + szauna",
+      "name": "Penthouse lakás saját szaunával és terasszal!",
+      "provider": "Airbnb",
+      "url": "https://www.airbnb.hu/rooms/1594342109828023150?unique_share_id=856f1dbd-d07b-4927-bda0-ad7b34c3ac61&viralityEntryPoint=1&s=76&source_impression_id=p3_1790104435_P3y2TUUQtPQ6ocpq&check_in=2026-10-03&guests=5&adults=5&check_out=2026-10-05",
+      "area": "2. kerület · Leopoldstadt · Praterstern",
+      "address": "Nordbahnstraße, 1020 Wien, Ausztria",
       "guests": 5,
       "nights": 2,
       "capacity": 6,
-      "roomType": "2 hálószobás apartman erkéllyel",
+      "sizeM2": 156,
+      "roomType": "Teljes lakás · 2 hálószoba · 3 ágy · 1 fürdőszoba · privát terasz · saját szauna",
       "rating": {
-        "score": 8.5,
-        "count": 143
+        "score": 4.84,
+        "count": 31
       },
       "price": {
-        "total": 334.66,
-        "currency": "EUR",
-        "verified": false,
-        "note": "A JSON-ban az eredeti Booking-ár euróban marad; az oldal élő EUR→HUF árfolyammal forintra váltja. A Booking aktuális foglalási árát foglalás előtt ellenőrizni kell."
+        "total": 155126,
+        "currency": "HUF",
+        "verified": true,
+        "note": "2026. október 3–5., 5 vendég. Ingyenes lemondás szerepelt az ajánlatban."
       },
+      "beds": {
+        "separateSleepingSurfaces": 4,
+        "details": [
+          "1× franciaágy – 2 fő",
+          "1× egyszemélyes ágy – 1 fő",
+          "1× kétszemélyes kanapéágy – 2 fő"
+        ],
+        "note": "5 fő kényelmesen elférhet, de csak 4 külön fekvőfelület van, mert a franciaágyat két vendég osztja meg."
+      },
+      "outdoor": [
+        "37 m² privát terasz",
+        "privát szauna",
+        "kültéri hideg zuhanyzó",
+        "szabadtéri étkező",
+        "nyugágyak"
+      ],
+      "transport": {
+        "primary": "Praterstern ~5 perc gyalog",
+        "detail": "A leírás szerint a Praterstern vasútállomás kb. 5 perc sétára van. Innen metró, S-Bahn és villamos is gyorsan elérhető, a belváros tömegközlekedéssel néhány perc."
+      },
+      "amenities": [
+        "saját szauna",
+        "privát terasz",
+        "kültéri hideg zuhanyzó",
+        "fürdőkád",
+        "Wi‑Fi",
+        "TV / SMART TV",
+        "teljesen felszerelt konyha",
+        "mosogatógép",
+        "mosógép",
+        "mikrohullámú sütő",
+        "sütő",
+        "kávéfőző",
+        "vízforraló",
+        "lift",
+        "külön munkaterület",
+        "önálló bejutás",
+        "számbillentyűzetes belépés",
+        "etetőszék",
+        "társasjátékok"
+      ],
+      "images": [
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1594342109828023150/original/faa8b29b-1211-4eb3-8a9d-46d9f67c0024.png?im_w=1440",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1594342109828023150/original/5ba16e4c-cf4a-4f13-bfab-e7e070d125d7.jpeg?im_w=1440",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1594342109828023150/original/68d36518-c2e8-4480-9899-f2918fc58e3f.png?im_w=1440",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1594342109828023150/original/e2e6a4e4-ae51-4f3f-9d4a-61153583cad1.png?im_w=1440",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1594342109828023150/original/ae284bc0-8eab-446d-89fd-8eaf866c0135.png?im_w=1440",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1594342109828023150/original/80e4fd0a-5865-4241-9d33-f3e132a77fc9.png?im_w=1440",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1594342109828023150/original/950a3a9f-d707-4376-8100-e5475cf828d9.png?im_w=1440"
+      ],
+      "note": "Erős opció a nagy privát terasz, a saját szauna és a Praterstern közeli elhelyezkedés miatt. Hátrány: nincs légkondicionálás, és 5 vendégre csak 3 külön fekvőfelület jut.",
+      "status": "available",
+      "checkedAt": "2026-09-22T21:00:00+02:00"
+    },
+   {
+      "id": "modern-bright-balcony-airbnb",
+      "shortName": "Modern erkélyes lakás",
+      "name": "Modern és világos lakás erkéllyel",
+      "provider": "Airbnb",
+      "url": "https://www.airbnb.hu/rooms/1522539184597870366?unique_share_id=f4284ca2-c07e-408c-8b52-ec7ebcdff6d5&viralityEntryPoint=1&s=76&source_impression_id=p3_1790105341_P3xNT1FHlU_y-s75&check_in=2026-10-03&guests=5&adults=5&check_out=2026-10-05",
+
+      "area": "Bécs · pontos környék még ellenőrizendő",
+      "address": "Bécs, Ausztria",
+
+      "guests": 5,
+      "nights": 2,
+      "capacity": 6,
+
+      "roomType": "Teljes lakás · 2 hálószoba · 3 ágy · 1 fürdőszoba · privát erkély",
+
+      "rating": {
+        "score": 4.91,
+        "count": 54
+      },
+
+      "price": {
+        "total": 144640,
+        "currency": "HUF",
+        "verified": true,
+        "note": "2026. október 3–5., 5 vendég. Ingyenes lemondás szerepelt az Airbnb ajánlatban."
+      },
+
       "beds": {
         "separateSleepingSurfaces": 3,
         "details": [
-          "1× franciaágy – hálószoba 1",
-          "1× franciaágy – hálószoba 2",
-          "1× kanapéágy – nappali"
+          "3 ágy összesen",
+          "2 külön hálószoba",
+          "Az ágyak pontos típusa még ellenőrizendő"
         ],
-        "note": "5 főre elfér, de nem 5 külön ágy: két fekvőfelületet meg kell osztani."
+        "note": "Az Airbnb 3 ágyat jelez legfeljebb 6 vendégre. A pontos ágytípusokat még érdemes megnézni."
       },
+
       "outdoor": [
-        "erkély"
+        "privát terasz vagy erkély"
       ],
+
       "transport": {
-        "primary": "6-os villamos ~100 m",
-        "detail": "A szállásadó leírása szerint a 6-os villamos kb. 100 m-re van; innen néhány megálló a Reumannplatz U1. Az U1-ről a Hauptbahnhof és a belváros gyorsan elérhető."
+        "primary": "Pontos megálló még ellenőrizendő",
+        "detail": "A hirdetésből a pontos környék és a legközelebbi metró/villamos/S-Bahn még nem derült ki."
       },
+
       "amenities": [
-        "légkondicionáló",
+        "privát terasz vagy erkély",
+        "gyors Wi-Fi – 65 Mbps",
         "konyha",
         "mosogatógép",
+        "mosógép",
+        "fürdőkád",
+        "tévé",
         "lift",
-        "családi szobák"
+        "mikrohullámú sütő",
+        "sütő",
+        "Nespresso kávéfőző",
+        "vízforraló",
+        "központi fűtés",
+        "hordozható ventilátor",
+        "önálló bejutás",
+        "zárható kulcsdoboz",
+        "kisállat megengedett",
+        "dohányzás megengedett",
+        "füstérzékelő",
+        "tűzoltó készülék",
+        "elsősegélykészlet"
       ],
+
       "images": [
-        "./assets/placeholders/living-room.png",
-        "./assets/placeholders/balcony.png",
-        "./assets/placeholders/bedroom.png"
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1522539184597870366/original/bcbfe0ff-1614-48ff-9754-a9baee918d0d.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1522539184597870366/original/6b52bb48-5acf-4d8f-a801-cc2ce3df23a3.jpeg?im_w=1200",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1522539184597870366/original/2e8f688b-df60-4ce0-98bf-245cb3a11f10.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1522539184597870366/original/827f22f4-e5fe-42a6-b36a-be4eba10998a.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1522539184597870366/original/9b91c80e-2b3c-4a33-8c4f-8fce0140a20e.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1522539184597870366/original/ed2b4ec4-4bdc-4cc3-ac81-8516b25f8fd1.jpeg?im_w=720",
+        "https://a0.muscache.com/im/pictures/hosting/Hosting-1522539184597870366/original/cf2bcf2a-5ed9-474b-8654-c9712b17f66a.jpeg?im_w=720"
       ],
-      "note": "A Booking-listing korábbi neve Sunny & cozy Penthouse with Balcony DG5 volt. A tesztkártya publikus Booking-adatokból készült; a konkrét október 3–5-i ár és elérhetőség manuálisan ellenőrizendő.",
-      "status": "unknown",
-      "checkedAt": "2026-09-22T20:10:00+02:00"
+
+      "note": "Jó árú, világos, modern lakás két hálószobával és saját erkéllyel. Különösen erős pont a 4,91-es értékelés, az ingyenes lemondás és a 65 Mbps-os Wi-Fi. Hátrány: nincs légkondicionálás, és a 3 ágy pontos típusa még nem ismert.",
+
+      "status": "available",
+      "checkedAt": "2026-09-22T21:20:00+02:00"
     },
     {
-      "id": "demo-second-stay",
-      "shortName": "Második demo",
-      "name": "DEMO – következő szállás helye",
-      "provider": "Airbnb",
-      "url": "https://www.airbnb.com/",
-      "area": "Bécs",
-      "address": "",
+      "id": "city-pulse-u6-floridsdorf",
+      "shortName": "City Pulse · U6",
+      "name": "Free Parking - City Pulse Apartments at U6-Metro Vienna",
+      "provider": "Booking",
+      "url": "https://www.booking.com/hotel/at/city-pulse-aparments-at-u6-metro-vienna.hu.html?aid=304142&label=mkt123sc-207b2c21-428b-4f22-ae52-8b56be06bf44&sid=02eb90506ffb436850a393d39524b464&checkin=2026-10-03&checkout=2026-10-05&dest_id=-1995499&dest_type=city&dist=0&do_availability_check=1&group_adults=5&group_children=0&hp_avform=1&hp_group_set=0&no_rooms=1&origin=hp&sb_price_type=total&src=hotel&type=total",
+
+      "area": "21. kerület · Floridsdorf · U6",
+      "address": "Floridsdorf, 1210 Wien, Ausztria",
+
       "guests": 5,
       "nights": 2,
       "capacity": 5,
-      "roomType": "Demo apartman",
+      "sizeM2": 63,
+
+      "roomType": "2 hálószobás teljes apartman · nappali · erkély · terasz · saját fürdőszoba",
+
       "rating": {},
+
       "price": {
-        "total": 145000,
+        "total": 144140,
         "currency": "HUF",
-        "verified": false,
-        "note": "Csak azért maradt benne, hogy azonnal kipróbálható legyen a szállások közötti lapozás."
+        "verified": true,
+        "note": "2026. október 3–5., 5 felnőtt. Az ár tartalmazza az adókat és díjakat."
       },
+
       "beds": {
         "separateSleepingSurfaces": 5,
         "details": [
-          "5× külön fekvőhely"
+          "2× egyszemélyes ágy – hálószoba 1",
+          "1× franciaágy – hálószoba 2",
+          "1× kanapéágy – nappali"
         ],
-        "note": ""
+        "note": "A Booking összesen 4 ágyat jelez. Az első hálóban két külön egyszemélyes ágy van, ezért ez az eddigi opciók közül kedvezőbb az eltérő alvóhelyek szempontjából."
       },
+
       "outdoor": [
-        "terasz"
+        "erkély",
+        "terasz",
+        "kültéri étkező",
+        "kerti bútorok"
       ],
+
       "transport": {
-        "primary": "U-Bahn 4 perc",
-        "detail": "Demo közlekedési adat."
+        "primary": "U6 Floridsdorf ~400 m",
+        "detail": "A Wien Floridsdorf vasútállomás kb. 350 méterre, a Floridsdorf U6 metróállomás kb. 400 méterre található. Innen metróval, S-Bahnnal és más városi járatokkal könnyen elérhető Bécs többi része."
       },
+
       "amenities": [
-        "Wi-Fi",
-        "konyha"
+        "ingyenes privát parkolás",
+        "ingyenes Wi-Fi",
+        "erkély",
+        "terasz",
+        "saját konyha",
+        "mosogatógép",
+        "mosógép",
+        "szárítógép",
+        "mikrohullámú sütő",
+        "sütő",
+        "főzőlap",
+        "kenyérpirító",
+        "kávéfőző",
+        "tea- és kávéfőző",
+        "vízforraló",
+        "síkképernyős TV",
+        "lift",
+        "saját fürdőszoba",
+        "zuhany",
+        "kültéri étkező",
+        "kerti bútorok",
+        "soron kívüli be- és kijelentkezés",
+        "kerékpártároló",
+        "minimarket az épület közelében"
       ],
+
       "images": [
-        "./assets/placeholders/apartment.png",
-        "./assets/placeholders/balcony.png"
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/862835046.jpg?k=39483b88665af2834c286ea50c63bdbf9c6e6b14d32078a70224cf330a72ab55&o=",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/862834993.jpg?k=7e5681834b6637eb8bc1da64ef1443058d57139ab7ce9ce56f54d340f9d2b284&o=",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/862834700.jpg?k=e18e26a94f9b4c2566d505ca30c2d2c08ce7bcfe4d031fb76cc60f93e73694d1&o=",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/862834749.jpg?k=bae407e010f5cdb72880adad7cd083d041db812424ecad319cef551e3bebe2bb&o=",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/862834757.jpg?k=ff7be0400cb8bcb24bab3e75ac42faf2426e684fe4369e46f2d438b4e24581d9&o=",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/862834869.jpg?k=0526145fdf94f67eadc2025dca5f49a00925e23a39ed15d8fa4b99d6ce3d839a&o="
       ],
-      "note": "Ezt később töröljük, amikor jön a második valódi szállás.",
-      "status": "unknown",
-      "checkedAt": "2026-09-22T20:10:00+02:00"
+
+      "note": "Nagyon jó árú opció 5 főre, két külön hálószobával, erkéllyel és terasszal. Külön előny a Floridsdorf U6 és vasútállomás közelsége, valamint az ingyenes privát parkolás. A vendégek az ágyak kényelmét 9,3 pontra értékelték 199 vélemény alapján, a csoportok pedig az elhelyezkedést 9,2 pontra értékelték. A belvárostól távolabb van, mint a Praterstern környéki opciók.",
+
+      "status": "available",
+      "checkedAt": "2026-09-22T21:30:00+02:00"
     }
   ]
 }

@@ -377,6 +377,12 @@ function renderStay() {
         <span class="fact__label">Közlekedés</span>
         <div class="fact__value">🚋 ${escapeHtml(stay.transport.primary)}</div>
       </div>
+      ${stay.sizeM2 ? `
+        <div class="fact">
+          <span class="fact__label">Lakás mérete</span>
+          <div class="fact__value">📐 ${stay.sizeM2} m²</div>
+        </div>
+      ` : ""}
     </div>
 
     <div class="beds">
