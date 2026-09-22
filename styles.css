@@ -1425,3 +1425,41 @@ h2 {
     flex-direction: column;
   }
 }
+
+.train-filters {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.train-filters .train-sort {
+  min-width: 185px;
+}
+
+.train-empty {
+  width: 100%;
+  padding: 32px 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  color: var(--muted);
+  background: var(--surface);
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .train-filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .train-filters .train-sort {
+    min-width: 0;
+  }
+
+  .train-filters select {
+    font-size: 11px;
+    padding-left: 10px;
+  }
+}

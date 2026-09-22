@@ -5,6 +5,9 @@ let trainOffers = [];
 let trainPassengers = 1;
 let eurHufRate = null;
 
+let trainPeriod = "morning";
+let trainSort = "departure";
+
 function escapeTrainHtml(value = "") {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -245,33 +248,72 @@ async function loadTrainOffers() {
   }
 }
 
-function sortTrainOffers(sortType) {
-  const result = [...trainOffers];
+function getDepartureHour(dateString) {
+  const date = new Date(dateString);
 
-  if (sortType === "earliest") {
-    result.sort(
-      (a, b) =>
+  return {
+    hour: date.getHours(),
+    minute: date.getMinutes()
+  };
+}
+
+function filterTrainOffers(period = "morning") {
+  return trainOffers.filter((offer) => {
+    const departure = new Date(offer.departure);
+
+    const minutes =
+      departure.getHours() * 60 +
+      departure.getMinutes();
+
+    // 06:30 előtti járatok egyáltalán nem kellenek
+    if (minutes < 6 * 60 + 30) {
+      return false;
+    }
+
+    // Délelőtt: 06:30 – 12:59
+    if (period === "morning") {
+      return minutes < 13 * 60;
+    }
+
+    // Délután: 13:00-tól
+    if (period === "afternoon") {
+      return minutes >= 13 * 60;
+    }
+
+    // Összes: minden 06:30 utáni
+    return true;
+  });
+}
+
+function sortTrainOffers(
+  offers,
+  sortType = "departure"
+) {
+  const result = [...offers];
+
+  if (sortType === "cheapest") {
+    result.sort((a, b) => {
+      if (a.price.amount !== b.price.amount) {
+        return (
+          Number(a.price.amount) -
+          Number(b.price.amount)
+        );
+      }
+
+      return (
         new Date(a.departure) -
         new Date(b.departure)
-    );
+      );
+    });
 
     return result;
   }
 
-  if (sortType === "latest") {
-    result.sort(
-      (a, b) =>
-        new Date(b.departure) -
-        new Date(a.departure)
-    );
-
-    return result;
-  }
-
+  // Alap: indulási idő
   result.sort(
     (a, b) =>
-      Number(a.price.amount) -
-      Number(b.price.amount)
+      new Date(a.departure) -
+      new Date(b.departure)
   );
 
   return result;
@@ -280,13 +322,19 @@ function sortTrainOffers(sortType) {
 function renderTrainSection(data) {
   const root = document.querySelector("#trainOffers");
 
+  if (!root) {
+    return;
+  }
+
   const travelDate = formatDate(
     `${data.query.travelDate}T12:00:00`
   );
 
   root.innerHTML = `
     <section class="train-section">
+
       <div class="train-header">
+
         <div>
           <div class="train-eyebrow">
             🚆 VONATJEGYEK
@@ -305,28 +353,53 @@ function renderTrainSection(data) {
           </p>
         </div>
 
-        <div class="train-sort">
-          <label for="trainSort">
-            Rendezés
-          </label>
 
-          <select id="trainSort">
-            <option value="cheapest">
-              💰 Legolcsóbb
-            </option>
+        <div class="train-filters">
 
-            <option value="earliest">
-              🌅 Legkorábbi indulás
-            </option>
+          <div class="train-sort">
+            <label for="trainPeriod">
+              Időszak
+            </label>
 
-            <option value="latest">
-              🌙 Legkésőbbi indulás
-            </option>
-          </select>
+            <select id="trainPeriod">
+              <option value="morning" selected>
+                🌅 Délelőtt
+              </option>
+
+              <option value="afternoon">
+                🌇 Délután
+              </option>
+
+              <option value="all">
+                🚆 Összes
+              </option>
+            </select>
+          </div>
+
+
+          <div class="train-sort">
+            <label for="trainSort">
+              Rendezés
+            </label>
+
+            <select id="trainSort">
+              <option value="departure" selected>
+                🕐 Indulási idő
+              </option>
+
+              <option value="cheapest">
+                💰 Legolcsóbb
+              </option>
+            </select>
+          </div>
+
         </div>
+
       </div>
 
+
       <div class="train-carousel-wrapper">
+
         <button
           class="train-arrow train-arrow--left"
           id="trainPrev"
@@ -349,9 +422,12 @@ function renderTrainSection(data) {
         >
           ›
         </button>
+
       </div>
 
+
       <div class="train-footer">
+
         <span>
           ${
             eurHufRate
@@ -366,23 +442,44 @@ function renderTrainSection(data) {
             formatUpdatedAt(data.generatedAt)
           )}
         </span>
+
       </div>
+
     </section>
   `;
 
-  renderTrainCards("cheapest");
+
+  // Alapbeállítás
+  trainPeriod = "morning";
+  trainSort = "departure";
+
+  renderTrainCards();
+
+
+  document
+    .querySelector("#trainPeriod")
+    ?.addEventListener("change", (event) => {
+      trainPeriod = event.target.value;
+
+      renderTrainCards();
+    });
+
 
   document
     .querySelector("#trainSort")
     ?.addEventListener("change", (event) => {
-      renderTrainCards(event.target.value);
+      trainSort = event.target.value;
+
+      renderTrainCards();
     });
+
 
   document
     .querySelector("#trainPrev")
     ?.addEventListener("click", () => {
       scrollTrainCarousel(-1);
     });
+
 
   document
     .querySelector("#trainNext")
@@ -391,7 +488,7 @@ function renderTrainSection(data) {
     });
 }
 
-function renderTrainCards(sortType = "cheapest") {
+function renderTrainCards() {
   const carousel =
     document.querySelector("#trainCarousel");
 
@@ -399,7 +496,39 @@ function renderTrainCards(sortType = "cheapest") {
     return;
   }
 
-  const sorted = sortTrainOffers(sortType);
+  const filtered =
+    filterTrainOffers(trainPeriod);
+
+  const sorted =
+    sortTrainOffers(
+      filtered,
+      trainSort
+    );
+
+  if (sorted.length === 0) {
+    carousel.innerHTML = `
+      <div class="train-empty">
+        Ebben az időszakban nincs megjeleníthető vonat.
+      </div>
+    `;
+
+    return;
+  }
+
+  const cheapestPrice = Math.min(
+    ...filtered
+      .filter(
+        (item) =>
+          item?.price &&
+          Number.isFinite(
+            Number(item.price.amount)
+          )
+      )
+      .map(
+        (item) =>
+          Number(item.price.amount)
+      )
+  );
 
   carousel.innerHTML = sorted
     .map((offer, index) => {
@@ -432,18 +561,14 @@ function renderTrainCards(sortType = "cheapest") {
 
       const isCheapest =
         Math.abs(
-          totalEuro -
-            Math.min(
-              ...trainOffers.map(
-                (item) =>
-                  Number(item.price.amount)
-              )
-            )
+          totalEuro - cheapestPrice
         ) < 0.001;
 
       return `
         <article class="train-card">
+
           <div class="train-card__top">
+
             <div>
               <div class="train-type">
                 ${escapeTrainHtml(type.name)}
@@ -467,10 +592,14 @@ function renderTrainCards(sortType = "cheapest") {
                 `
                 : ""
             }
+
           </div>
 
+
           <div class="train-route">
+
             <div class="train-stop">
+
               <strong>
                 ${formatTime(offer.departure)}
               </strong>
@@ -478,9 +607,12 @@ function renderTrainCards(sortType = "cheapest") {
               <span>
                 ${escapeTrainHtml(offer.origin)}
               </span>
+
             </div>
 
+
             <div class="train-route__middle">
+
               <span class="train-route__duration">
                 ${formatDuration(duration)}
               </span>
@@ -498,9 +630,12 @@ function renderTrainCards(sortType = "cheapest") {
                     : `${offer.changes} átszállás`
                 }
               </span>
+
             </div>
 
+
             <div class="train-stop train-stop--arrival">
+
               <strong>
                 ${formatTime(offer.arrival)}
               </strong>
@@ -510,11 +645,16 @@ function renderTrainCards(sortType = "cheapest") {
                   offer.destination
                 )}
               </span>
+
             </div>
+
           </div>
 
+
           <div class="train-price">
+
             <div class="train-price__total">
+
               <span>
                 ${trainPassengers} fő összesen
               </span>
@@ -532,9 +672,12 @@ function renderTrainCards(sortType = "cheapest") {
                   `
                   : ""
               }
+
             </div>
 
+
             <div class="train-price__person">
+
               <span>
                 Egy főre
               </span>
@@ -552,10 +695,14 @@ function renderTrainCards(sortType = "cheapest") {
                   `
                   : ""
               }
+
             </div>
+
           </div>
 
+
           <div class="train-card__bottom">
+
             <span>
               ${escapeTrainHtml(
                 offer.price.name ?? ""
@@ -569,11 +716,14 @@ function renderTrainCards(sortType = "cheapest") {
                   : "Rugalmas"
               }
             </span>
+
           </div>
+
 
           <div class="train-card__position">
             ${index + 1} / ${sorted.length}
           </div>
+
         </article>
       `;
     })
