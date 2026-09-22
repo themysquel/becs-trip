@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0d10" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Bécsi szállás shortlist – 2026. október 3–5., 5 fő." />
+  <title>Bécs 2026 · Szállások</title>
+  <link rel="stylesheet" href="./styles.css?v=5" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar__inner">
+      <div>
+        <p class="kicker">BÉCS · 2026</p>
+        <h1>Szállások</h1>
+      </div>
+      <div class="header-side">
+        <div class="trip-pill">
+          <strong>okt. 3–5.</strong>
+          <span>5 fő · 2 éjszaka</span>
+        </div>
+        <div id="fxStatus" class="fx-pill">Árfolyam betöltése…</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="weather" aria-labelledby="weatherTitle">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">UTAZÁS</p>
+          <h2 id="weatherTitle">Időjárás</h2>
+        </div>
+        <a class="source-link" href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">
+          Open-Meteo ↗
+        </a>
+      </div>
+
+      <div id="weatherLocations" class="weather-locations" role="tablist" aria-label="Időjárás helyszíne">
+        <button class="weather-location is-active" type="button" data-weather-location="vienna" role="tab" aria-selected="true">
+          <span class="weather-location__icon">🏙️</span>
+          <span><strong>Bécs</strong><small>város</small></span>
+        </button>
+        <button class="weather-location" type="button" data-weather-location="semmering" role="tab" aria-selected="false">
+          <span class="weather-location__icon">🌲</span>
+          <span><strong>Semmering</strong><small>~950 m</small></span>
+        </button>
+        <button class="weather-location" type="button" data-weather-location="schneeberg" role="tab" aria-selected="false">
+          <span class="weather-location__icon">🏔️</span>
+          <span><strong>Schneeberg</strong><small>~2000 m</small></span>
+        </button>
+      </div>
+
+      <div class="weather-location-summary">
+        <div>
+          <strong id="weatherLocationName">Bécs</strong>
+          <span id="weatherLocationDetail">városi előrejelzés</span>
+        </div>
+        <span id="weatherElevation" class="weather-elevation">~170 m</span>
+      </div>
+
+      <div id="weatherDays" class="weather__days">
+        <div class="weather__loading">Előrejelzés betöltése…</div>
+      </div>
+      <p id="weatherNotice" class="weather__notice">
+        Hegyen a körülmények gyorsan változhatnak; indulás előtt nézzetek rá újra.
+      </p>
+    </section>
+
+    <section class="stay-section" aria-labelledby="staysTitle">
+      <div class="section-heading section-heading--stays">
+        <div>
+          <p class="section-kicker">SHORTLIST</p>
+          <h2 id="staysTitle">Szállások</h2>
+        </div>
+        <div class="stay-counter">
+          <strong id="currentStayNumber">1</strong>
+          <span>/</span>
+          <span id="stayCount">1</span>
+        </div>
+      </div>
+
+      <div class="stay-switcher-wrap">
+        <button id="prevStayTop" class="round-nav" type="button" aria-label="Előző szállás">‹</button>
+        <nav id="staySwitcher" class="stay-switcher" aria-label="Szállások közötti váltás"></nav>
+        <button id="nextStayTop" class="round-nav" type="button" aria-label="Következő szállás">›</button>
+      </div>
+
+      <div id="stayViewport" class="stay-viewport">
+        <div id="stayStage" class="stay-stage" aria-live="polite"></div>
+      </div>
+
+      <div class="bottom-navigation">
+        <button id="prevStay" class="page-nav" type="button">
+          <span aria-hidden="true">←</span>
+          <span>Előző szállás</span>
+        </button>
+        <button id="nextStay" class="page-nav page-nav--next" type="button">
+          <span>Következő szállás</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <p>
+      Az ár, ágyelosztás és elérhetőség manuálisan rögzített shortlist-adat. Foglalás előtt mindig ellenőrizd újra a szolgáltató oldalán.
+    </p>
+  </footer>
+
+  <script src="./app.js?v=5" defer></script>
+</body>
+</html>
