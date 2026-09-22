@@ -1463,3 +1463,1161 @@ h2 {
     padding-left: 10px;
   }
 }
+
+/* =========================================================
+   KIISSZA ELŐBB? - GAME
+   ========================================================= */
+
+#drinkGame {
+  width: 100%;
+}
+
+
+/* =========================================
+   TEASER
+   ========================================= */
+
+.drink-game-teaser {
+  position: relative;
+  margin-top: 34px;
+  padding: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(251, 191, 36, .24);
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(251, 191, 36, .12),
+      transparent 240px
+    ),
+    linear-gradient(
+      145deg,
+      #17191f,
+      #101318
+    );
+
+  box-shadow:
+    0 14px 44px rgba(0, 0, 0, .20);
+}
+
+
+.drink-game-teaser::before {
+  content: "";
+
+  position: absolute;
+  width: 170px;
+  height: 170px;
+
+  right: -50px;
+  top: -70px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(251, 191, 36, .08);
+
+  pointer-events: none;
+}
+
+
+.drink-game-teaser__content {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
+.drink-game-teaser__icon {
+  flex: 0 0 auto;
+
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid
+    rgba(251, 191, 36, .18);
+
+  border-radius: 17px;
+
+  background:
+    rgba(251, 191, 36, .08);
+
+  font-size: 29px;
+}
+
+
+.drink-game-teaser__text {
+  min-width: 0;
+}
+
+
+.drink-game-teaser h2 {
+  margin: 0;
+}
+
+
+.drink-game-teaser__text > p:last-child {
+  margin: 7px 0 0;
+
+  color: var(--muted);
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+
+/* START BUTTON */
+
+.drink-game-launch {
+  position: relative;
+
+  flex: 0 0 auto;
+
+  min-width: 180px;
+  min-height: 60px;
+
+  padding: 10px 18px;
+
+  display: grid;
+  place-items: center;
+  gap: 2px;
+
+  border: 1px solid
+    rgba(251, 191, 36, .45);
+
+  border-radius: 15px;
+
+  color: #161006;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fbd56b,
+      #eab83d
+    );
+
+  box-shadow:
+    0 10px 32px
+    rgba(234, 184, 61, .18);
+
+  cursor: pointer;
+
+  font-weight: 950;
+
+  animation:
+    drinkLaunchPulse
+    2.1s ease-in-out infinite;
+}
+
+
+.drink-game-launch span {
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+
+
+.drink-game-launch strong {
+  font-size: 15px;
+}
+
+
+.drink-game-launch:hover {
+  filter: brightness(1.07);
+}
+
+
+@keyframes drinkLaunchPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+
+/* =========================================
+   FULLSCREEN MODAL
+   ========================================= */
+
+.drink-game-modal[hidden] {
+  display: none;
+}
+
+
+.drink-game-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  overflow-y: auto;
+
+  background:
+    rgba(5, 7, 10, .96);
+
+  overscroll-behavior: contain;
+}
+
+
+body.drink-game-open {
+  overflow: hidden;
+}
+
+
+.drink-game-screen {
+  width: min(
+    900px,
+    100%
+  );
+
+  min-height: 100%;
+
+  margin-inline: auto;
+
+  padding:
+    max(
+      14px,
+      env(safe-area-inset-top)
+    )
+    max(
+      16px,
+      env(safe-area-inset-right)
+    )
+    max(
+      30px,
+      env(safe-area-inset-bottom)
+    )
+    max(
+      16px,
+      env(safe-area-inset-left)
+    );
+}
+
+
+/* =========================================
+   MODAL TOPBAR
+   ========================================= */
+
+.drink-game-topbar {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 30;
+
+  margin-bottom: 18px;
+  padding: 10px 0 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5, 7, 10, .98) 70%,
+      transparent
+    );
+}
+
+
+.drink-game-topbar > div {
+  display: grid;
+  gap: 2px;
+}
+
+
+.drink-game-topbar__small {
+  color: var(--muted);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: .12em;
+}
+
+
+.drink-game-topbar strong {
+  font-size: 17px;
+}
+
+
+.drink-game-close {
+  width: 46px;
+  height: 46px;
+
+  flex: 0 0 46px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--line);
+
+  border-radius: 50%;
+
+  color: var(--text);
+
+  background:
+    var(--surface-2);
+
+  cursor: pointer;
+
+  font-size: 27px;
+  line-height: 1;
+}
+
+
+.drink-game-close:hover {
+  background:
+    var(--surface-hover);
+}
+
+
+/* =========================================
+   CONTENT
+   ========================================= */
+
+.drink-game-content {
+  display: grid;
+  gap: 13px;
+}
+
+
+/* RANK */
+
+.drink-game-rank {
+  padding: 15px;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto;
+
+  gap: 10px 16px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 18px;
+
+  background:
+    var(--surface);
+}
+
+
+.drink-game-rank > div:first-child {
+  min-width: 0;
+
+  display: grid;
+  gap: 3px;
+}
+
+
+.drink-game-rank span {
+  color: var(--muted);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+}
+
+
+.drink-game-rank strong {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  font-size: 17px;
+}
+
+
+.drink-game-level {
+  padding: 8px 11px;
+
+  align-self: center;
+
+  border-radius: 11px;
+
+  color: var(--accent-strong);
+
+  background:
+    var(--accent-soft);
+
+  font-size: 9px;
+  font-weight: 800;
+}
+
+
+.drink-game-level strong {
+  margin-left: 3px;
+
+  font-size: 15px;
+}
+
+
+.drink-game-progress {
+  grid-column: 1 / -1;
+
+  height: 8px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    #090c11;
+}
+
+
+.drink-game-progress__fill {
+  height: 100%;
+
+  width: 12.5%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      to right,
+      #8fb4ff,
+      #b8ceff
+    );
+
+  transition:
+    width .3s ease;
+}
+
+
+.drink-game-rank small {
+  grid-column: 1 / -1;
+
+  color: var(--muted);
+
+  font-size: 9px;
+}
+
+
+/* CHALLENGE */
+
+.drink-game-challenge {
+  padding: 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 16px;
+
+  background:
+    var(--surface);
+}
+
+
+.drink-game-challenge > div:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+
+.drink-game-challenge span {
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 800;
+}
+
+
+.drink-game-challenge strong {
+  font-size: 13px;
+}
+
+
+.drink-game-rules {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+
+.drink-game-rules span {
+  padding: 6px 8px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 999px;
+
+  color: #ccd3dd;
+
+  background:
+    var(--surface-2);
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   PLAYER VS ENEMY
+   ========================================= */
+
+.drink-game-versus {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.drink-player-card,
+.drink-enemy-card {
+  min-width: 0;
+
+  padding: 13px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 18px;
+
+  background:
+    var(--surface);
+}
+
+
+.drink-game-vs {
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 950;
+}
+
+
+.drink-game-person {
+  min-width: 0;
+
+  margin-bottom: 8px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7px;
+}
+
+
+.drink-game-person > div {
+  min-width: 0;
+
+  display: grid;
+  gap: 2px;
+}
+
+
+.drink-game-person span {
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 900;
+}
+
+
+.drink-game-person strong {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  font-size: 15px;
+}
+
+
+.drink-game-person small {
+  flex: 0 0 auto;
+
+  color: var(--muted);
+
+  font-size: 8px;
+}
+
+
+.drink-enemy-rank {
+  min-height: 27px;
+
+  margin: -2px 0 8px;
+
+  overflow: hidden;
+
+  color: var(--amber-text);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   GLASS
+   ========================================= */
+
+.drink-glass {
+  position: relative;
+
+  height: 220px;
+
+  overflow: hidden;
+
+  border: 3px solid #39414d;
+  border-top-width: 2px;
+
+  border-radius:
+    16px
+    16px
+    29px
+    29px;
+
+  background:
+    #0c1016;
+}
+
+
+.drink-liquid {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      to top,
+      #ad6b13,
+      #e0a029
+    );
+
+  transition:
+    height .10s linear;
+}
+
+
+.drink-foam {
+  position: absolute;
+
+  left: 5px;
+  right: 5px;
+  top: 5px;
+
+  height: 15px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, .72);
+}
+
+
+.drink-glass-percent {
+  position: absolute;
+
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #fff;
+
+  font-size: 17px;
+
+  text-shadow:
+    0 2px 5px
+    rgba(0, 0, 0, .75);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   STATUS
+   ========================================= */
+
+.drink-game-status {
+  min-height: 82px;
+
+  padding: 15px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--line);
+
+  border-radius: 17px;
+
+  background:
+    #0d1117;
+
+  text-align: center;
+}
+
+
+.drink-game-status strong {
+  font-size: 23px;
+  line-height: 1;
+}
+
+
+.drink-game-status span {
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+}
+
+
+/* TAUNT */
+
+.drink-game-taunt {
+  min-height: 52px;
+
+  padding: 12px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--line);
+
+  border-radius: 15px;
+
+  background:
+    var(--surface);
+
+  text-align: center;
+}
+
+
+.drink-game-taunt strong {
+  font-size: 13px;
+}
+
+
+.drink-game-taunt.is-popping {
+  animation:
+    drinkTauntPop .38s ease;
+}
+
+
+@keyframes drinkTauntPop {
+  0% {
+    opacity: .2;
+
+    transform:
+      scale(.88);
+  }
+
+  65% {
+    transform:
+      scale(1.035);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      scale(1);
+  }
+}
+
+
+/* =========================================
+   STATS
+   ========================================= */
+
+.drink-game-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 7px;
+}
+
+
+.drink-game-stats > div {
+  min-width: 0;
+
+  padding: 10px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+
+  background:
+    var(--surface);
+
+  text-align: center;
+}
+
+
+.drink-game-stats strong {
+  font-size: 15px;
+}
+
+
+.drink-game-stats span {
+  margin-top: 2px;
+
+  color: var(--muted);
+
+  font-size: 8px;
+}
+
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.drink-sip-button {
+  width: 100%;
+
+  min-height: 76px;
+
+  border: 0;
+
+  border-radius: 18px;
+
+  color: #07101f;
+
+  background:
+    linear-gradient(
+      145deg,
+      #b8ceff,
+      #8fb4ff
+    );
+
+  box-shadow:
+    0 12px 30px
+    rgba(100, 140, 220, .17);
+
+  cursor: pointer;
+
+  touch-action: manipulation;
+
+  user-select: none;
+
+  font-size: 20px;
+  font-weight: 950;
+
+  letter-spacing: .02em;
+}
+
+
+.drink-sip-button:active {
+  transform:
+    scale(.985);
+}
+
+
+.drink-sip-button:disabled {
+  opacity: .35;
+
+  cursor: default;
+}
+
+
+.drink-start-button {
+  width: 100%;
+
+  min-height: 49px;
+
+  border: 1px solid var(--line);
+
+  border-radius: 14px;
+
+  color: var(--text);
+
+  background:
+    var(--surface-2);
+
+  cursor: pointer;
+
+  touch-action: manipulation;
+
+  font-size: 11px;
+  font-weight: 900;
+}
+
+
+/* ERROR SHAKE */
+
+.drink-glass.is-shaking {
+  animation:
+    drinkGlassShake .25s ease;
+}
+
+
+@keyframes drinkGlassShake {
+  0%,
+  100% {
+    transform:
+      translateX(0);
+  }
+
+  25% {
+    transform:
+      translateX(-7px);
+  }
+
+  75% {
+    transform:
+      translateX(7px);
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 720px) {
+
+  .drink-game-teaser {
+    margin-top: 24px;
+
+    padding: 16px;
+
+    align-items: stretch;
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+
+  .drink-game-teaser__icon {
+    width: 48px;
+    height: 48px;
+
+    font-size: 24px;
+  }
+
+
+  .drink-game-launch {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+
+  .drink-game-screen {
+    padding:
+      max(
+        8px,
+        env(safe-area-inset-top)
+      )
+      10px
+      max(
+        24px,
+        env(safe-area-inset-bottom)
+      );
+  }
+
+
+  .drink-game-topbar {
+    margin-bottom: 8px;
+
+    padding-bottom: 9px;
+  }
+
+
+  .drink-game-close {
+    width: 44px;
+    height: 44px;
+
+    flex-basis: 44px;
+  }
+
+
+  .drink-game-content {
+    gap: 9px;
+  }
+
+
+  .drink-game-rank {
+    padding: 11px;
+  }
+
+
+  .drink-game-rank strong {
+    font-size: 14px;
+  }
+
+
+  .drink-game-challenge {
+    padding: 10px;
+
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 7px;
+  }
+
+
+  .drink-game-rules {
+    justify-content: flex-start;
+  }
+
+
+  .drink-game-rules span {
+    font-size: 8px;
+  }
+
+
+  .drink-game-versus {
+    grid-template-columns:
+      minmax(0, 1fr)
+      22px
+      minmax(0, 1fr);
+
+    gap: 5px;
+  }
+
+
+  .drink-player-card,
+  .drink-enemy-card {
+    padding: 8px;
+  }
+
+
+  .drink-game-person strong {
+    font-size: 12px;
+  }
+
+
+  .drink-game-person small {
+    font-size: 7px;
+  }
+
+
+  .drink-enemy-rank {
+    min-height: 24px;
+
+    font-size: 7.5px;
+  }
+
+
+  .drink-glass {
+    height: 170px;
+
+    border-width: 2px;
+  }
+
+
+  .drink-glass-percent {
+    font-size: 14px;
+  }
+
+
+  .drink-game-status {
+    min-height: 67px;
+
+    padding: 11px;
+  }
+
+
+  .drink-game-status strong {
+    font-size: 19px;
+  }
+
+
+  .drink-game-status span {
+    font-size: 9px;
+  }
+
+
+  .drink-game-taunt {
+    min-height: 46px;
+
+    padding: 9px;
+  }
+
+
+  .drink-game-taunt strong {
+    font-size: 11px;
+  }
+
+
+  .drink-game-stats > div {
+    padding: 8px 5px;
+  }
+
+
+  .drink-sip-button {
+    min-height: 68px;
+
+    font-size: 18px;
+  }
+}
+
+
+@media (max-width: 360px) {
+
+  .drink-game-person small {
+    display: none;
+  }
+
+
+  .drink-glass {
+    height: 145px;
+  }
+
+
+  .drink-game-rank strong {
+    font-size: 12px;
+  }
+
+
+  .drink-enemy-rank {
+    font-size: 7px;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .drink-game-launch,
+  .drink-game-taunt.is-popping,
+  .drink-glass.is-shaking {
+    animation: none;
+  }
+}
