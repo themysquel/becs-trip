@@ -1,0 +1,351 @@
+{
+  "generatedAt": "2026-09-22T20:22:30.509Z",
+  "query": {
+    "travelDate": "2026-10-03",
+    "passengers": 5,
+    "passengerAges": [
+      30,
+      30,
+      30,
+      30,
+      30
+    ],
+    "class": 2,
+    "from": {
+      "name": "BUDAPEST*",
+      "id": "005510009"
+    },
+    "to": {
+      "name": "WIEN*",
+      "id": "008108000"
+    }
+  },
+  "cheapest": {
+    "id": 222226831,
+    "departure": "2026-10-03T18:30:00+02:00",
+    "arrival": "2026-10-03T21:20:00+02:00",
+    "origin": "Budapest-Keleti",
+    "destination": "Wien Hbf",
+    "changes": 0,
+    "trains": [
+      "EC 340"
+    ],
+    "price": {
+      "amount": 73,
+      "currency": "EUR",
+      "name": "START Europa AT",
+      "refundable": false,
+      "trainDependent": true
+    }
+  },
+  "offers": [
+    {
+      "id": 222226831,
+      "departure": "2026-10-03T18:30:00+02:00",
+      "arrival": "2026-10-03T21:20:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "EC 340"
+      ],
+      "price": {
+        "amount": 73,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222231801,
+      "departure": "2026-10-03T16:30:00+02:00",
+      "arrival": "2026-10-03T19:20:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "EC 148"
+      ],
+      "price": {
+        "amount": 97,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222230631,
+      "departure": "2026-10-03T14:50:00+02:00",
+      "arrival": "2026-10-03T17:20:00+02:00",
+      "origin": "Budapest-Kelenföld",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "EC 146"
+      ],
+      "price": {
+        "amount": 101,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222226981,
+      "departure": "2026-10-03T19:30:00+02:00",
+      "arrival": "2026-10-03T22:20:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "rjx 266"
+      ],
+      "price": {
+        "amount": 101,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222230861,
+      "departure": "2026-10-03T14:50:00+02:00",
+      "arrival": "2026-10-03T17:20:00+02:00",
+      "origin": "Budapest-Kelenföld",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "EC 146"
+      ],
+      "price": {
+        "amount": 111,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222227371,
+      "departure": "2026-10-03T08:30:00+02:00",
+      "arrival": "2026-10-03T11:20:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "EC 140"
+      ],
+      "price": {
+        "amount": 113,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222231491,
+      "departure": "2026-10-03T15:30:00+02:00",
+      "arrival": "2026-10-03T18:20:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "rjx 68"
+      ],
+      "price": {
+        "amount": 117,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222229721,
+      "departure": "2026-10-03T10:30:00+02:00",
+      "arrival": "2026-10-03T13:20:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "EC 142"
+      ],
+      "price": {
+        "amount": 125,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222229871,
+      "departure": "2026-10-03T11:30:00+02:00",
+      "arrival": "2026-10-03T14:20:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "rjx 64"
+      ],
+      "price": {
+        "amount": 137,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222226681,
+      "departure": "2026-10-03T05:30:00+02:00",
+      "arrival": "2026-10-03T08:20:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "EC 342"
+      ],
+      "price": {
+        "amount": 141,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222229581,
+      "departure": "2026-10-03T09:30:00+02:00",
+      "arrival": "2026-10-03T12:20:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "rjx 62"
+      ],
+      "price": {
+        "amount": 145,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222226861,
+      "departure": "2026-10-03T06:30:00+02:00",
+      "arrival": "2026-10-03T09:18:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "rjx 19912"
+      ],
+      "price": {
+        "amount": 157,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222227071,
+      "departure": "2026-10-03T06:54:00+02:00",
+      "arrival": "2026-10-03T09:28:00+02:00",
+      "origin": "Budapest-Kelenföld",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "EC 346"
+      ],
+      "price": {
+        "amount": 160,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222227241,
+      "departure": "2026-10-03T07:30:00+02:00",
+      "arrival": "2026-10-03T10:20:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "rjx 60"
+      ],
+      "price": {
+        "amount": 165,
+        "currency": "EUR",
+        "name": "START Europa AT",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222227391,
+      "departure": "2026-10-03T20:30:00+02:00",
+      "arrival": "2026-10-03T23:20:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "EN 462"
+      ],
+      "price": {
+        "amount": 201,
+        "currency": "EUR",
+        "name": "START Night",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222227251,
+      "departure": "2026-10-03T20:30:00+02:00",
+      "arrival": "2026-10-03T23:20:00+02:00",
+      "origin": "Budapest-Keleti",
+      "destination": "Wien Hbf",
+      "changes": 0,
+      "trains": [
+        "EN 462"
+      ],
+      "price": {
+        "amount": 235,
+        "currency": "EUR",
+        "name": "START Night",
+        "refundable": false,
+        "trainDependent": true
+      }
+    },
+    {
+      "id": 222226621,
+      "departure": "2026-10-03T01:25:00+02:00",
+      "arrival": "2026-10-03T06:37:00+02:00",
+      "origin": "Budapest-Déli",
+      "destination": "Wien Hbf",
+      "changes": 3,
+      "trains": [
+        "BESZ 4980",
+        "személyvonat 9910",
+        "Sz 7605"
+      ],
+      "price": {
+        "amount": 283.5,
+        "currency": "EUR",
+        "name": "Europa Flex",
+        "refundable": true,
+        "trainDependent": false
+      }
+    }
+  ]
+}
