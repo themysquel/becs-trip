@@ -6,10 +6,10 @@ const DRINK_GAME_LEVELS = [
     enemy: {
       name: "Bulcsú",
       rank: "Csöves alkesz",
+      emoji: "🥴",
     },
 
     rules: ["basic"],
-
     ruleLabels: [
       "🍺 Normál kortyok",
     ],
@@ -24,12 +24,12 @@ const DRINK_GAME_LEVELS = [
     enemy: {
       name: "Koppány",
       rank: "Kisfröccs-bandita",
+      emoji: "🧔",
     },
 
     rules: ["red"],
-
     ruleLabels: [
-      "✋ STOP jelzésnél ne nyomd",
+      "✋ STOP-nál ne nyomd",
     ],
 
     cpuInterval: 255,
@@ -42,12 +42,12 @@ const DRINK_GAME_LEVELS = [
     enemy: {
       name: "Géza",
       rank: "Pultszéli veterán",
+      emoji: "👨‍🦳",
     },
 
     rules: ["second"],
-
     ruleLabels: [
-      "↩️ Minden második korty visszatölt",
+      "↩️ Minden 2. korty visszatölt",
     ],
 
     cpuInterval: 245,
@@ -60,12 +60,12 @@ const DRINK_GAME_LEVELS = [
     enemy: {
       name: "Árpád",
       rank: "Korsóharcos",
+      emoji: "🧔‍♂️",
     },
 
     rules: ["fast"],
-
     ruleLabels: [
-      "⚠️ A túl gyors dupla nyomás büntet",
+      "⚠️ Túl gyors nyomás büntet",
     ],
 
     cpuInterval: 235,
@@ -78,12 +78,12 @@ const DRINK_GAME_LEVELS = [
     enemy: {
       name: "Levente",
       rank: "Sörcápa",
+      emoji: "😈",
     },
 
     rules: ["slow"],
-
     ruleLabels: [
-      "⏱️ Ha sokáig vársz, visszatölt",
+      "⏱️ Ha vársz, visszatölt",
     ],
 
     cpuInterval: 225,
@@ -96,6 +96,7 @@ const DRINK_GAME_LEVELS = [
     enemy: {
       name: "Botond",
       rank: "Kocsma bajnoka",
+      emoji: "😤",
     },
 
     rules: [
@@ -104,7 +105,7 @@ const DRINK_GAME_LEVELS = [
     ],
 
     ruleLabels: [
-      "✋ STOP jelzés",
+      "✋ STOP",
       "⚠️ Ne spameld",
     ],
 
@@ -118,6 +119,7 @@ const DRINK_GAME_LEVELS = [
     enemy: {
       name: "Tas",
       rank: "Pultkirály",
+      emoji: "👹",
     },
 
     rules: [
@@ -126,7 +128,7 @@ const DRINK_GAME_LEVELS = [
     ],
 
     ruleLabels: [
-      "↩️ Minden második visszatölt",
+      "↩️ Minden 2. visszatölt",
       "⏱️ Nem állhatsz le",
     ],
 
@@ -140,6 +142,7 @@ const DRINK_GAME_LEVELS = [
     enemy: {
       name: "Vajk",
       rank: "VÉGSŐ FŐALKESZ · BOSS",
+      emoji: "👑",
     },
 
     rules: [
@@ -151,7 +154,7 @@ const DRINK_GAME_LEVELS = [
 
     ruleLabels: [
       "✋ STOP",
-      "↩️ Minden 2. visszatölt",
+      "↩️ Minden 2.",
       "⚠️ Ne spameld",
       "⏱️ Ne lassíts",
     ],
@@ -160,6 +163,10 @@ const DRINK_GAME_LEVELS = [
   },
 ];
 
+
+/* =========================================================
+   BESZÓLÁSOK
+   ========================================================= */
 
 const DRINK_GAME_MISTAKE_TAUNTS = [
   "CSICSKA VAGY 😭",
@@ -172,34 +179,94 @@ const DRINK_GAME_MISTAKE_TAUNTS = [
   "Így a büfékocsiban sem kapsz rangot.",
   "Ez a technika bíróság elé kívánkozik.",
   "A kocsma kezd elveszíteni benned a hitét.",
+  "Anyád büszke lenne. Talán.",
+  "Még egy ilyen és kapsz egy szívószálat.",
+  "A korsó látványosan csalódott benned.",
 ];
 
 
-const DRINK_GAME_WIN_TAUNTS = [
-  "Na jó, ezt el kell ismerni. 🔥",
-  "A következő ellenfél már ideges.",
-  "Pultmester energia.",
-  "Ez már ranghoz méltó volt.",
-  "A korsó fél tőled.",
-  "Szép volt. De ne bízd el magad.",
+const DRINK_GAME_GOOD_TAUNTS = [
+  "Na jó, ez már emberes volt. 🔥",
+  "Bécs kezd félni tőled.",
+  "A pultos elismerően bólintott.",
+  "Ez már nem turista tempó.",
+  "A Railjet személyzete büszke lenne.",
+  "Kezdesz veszélyessé válni.",
+  "A korsó kezd megbánni mindent.",
+  "Na végre, valami életjel.",
 ];
 
 
-let drinkGame = {
+const DRINK_GAME_BANTER = [
+  "Mire te végzel, a Railjet már visszaért Budapestre.",
+  "A Práter óriáskereke gyorsabban forog nálad.",
+  "Bécsbe kijutottál, a korsó aljáig már nem fogsz.",
+  "Még a Wiener Linien is gyorsabb nálad.",
+  "A Stephansdomot hamarabb felújítják.",
+  "Schönbrunnban a sövény gyorsabban nő.",
+  "Ennyi erővel rendelj egy pohár vizet.",
+  "A bécsi pincér már hozná a számlát.",
+  "Mire végzel, indul a másnapi Railjet.",
+  "A korsó kezd unatkozni.",
+  "Ez Bécs, nem wellness hétvége.",
+  "A pultos már azt hiszi, csak fotózod.",
+  "A sör lassan szobahőmérsékletű lesz.",
+  "A Karlsplatzon gyorsabban találsz kijáratot.",
+  "A Westbahnhof galambjai már fogadnak ellened.",
+  "A Naschmarkton már bezárt három büfé.",
+  "Mozogj, mert lekéssük az utolsó U-Bahnt.",
+  "A schnitzeled kihűlt, mire ezt megiszod.",
+  "Még a Semmeringre is felérünk előbb.",
+];
+
+
+const DRINK_GAME_LOSS_TAUNTS = [
+  "TE CSICSKA. 😭",
+  "SZÉGYELLD MAGAD.",
+  "ENNYIT ÉRSZ.",
+  "SENKI VAGY.",
+  "A KORSÓ GYŐZÖTT. TE NEM.",
+  "EZÉRT KÁR VOLT BÉCSIG ELJÖNNI.",
+  "A PULTOS LETAGADJA, HOGY ISMER.",
+  "HAZA LEHET MENNI.",
+  "A RAILJETEN TÖBB TARTÁS VAN, MINT BENNED.",
+  "BÉCS NEM VOLT FELKÉSZÜLVE EKKORA CSALÓDÁSRA.",
+  "MÉG A WESTBAHNHOF GALAMBJA IS JOBB LENNE.",
+  "EZT MÉG A SCHÖNBRUNNI LOVAK IS KIRÖHÖGTÉK.",
+  "A KOCSMA VISSZAVONTA A BELÉPÉSI ENGEDÉLYEDET.",
+  "ILYEN TELJESÍTMÉNNYEL MARAD A MÁLNASZÖRP.",
+  "A BÉCSI PULTOS MOST KÉR BOCSÁNATOT A KORSÓTÓL.",
+];
+
+
+const DRINK_GAME_BOSS_TAUNTS = [
+  "Vajk nem ellenfél. Vajk egy életforma.",
+  "A főalkesz felébredt.",
+  "Innen már nincs visszaút.",
+  "Vajk eddig csak bemelegített.",
+  "A pult elcsendesedett. Megérkezett a boss.",
+];
+
+
+/* =========================================================
+   GAME STATE
+   ========================================================= */
+
+const drinkGame = {
   level: 0,
 
   player: 100,
   enemy: 100,
 
-  wins: 0,
-
-  taps: 0,
-  penalties: 0,
-  combo: 0,
-
   active: false,
   trap: false,
+
   gameOver: false,
+  roundWon: false,
+
+  taps: 0,
+  combo: 0,
+  penalties: 0,
 
   lastTap: 0,
   lastGoodTap: 0,
@@ -208,15 +275,15 @@ let drinkGame = {
   trapTimer: null,
   slowTimer: null,
   countdownTimer: null,
+
+  banterTimer: null,
+  tauntHideTimer: null,
 };
 
 
-function drinkGameRandom(items) {
-  return items[
-    Math.floor(Math.random() * items.length)
-  ];
-}
-
+/* =========================================================
+   HELPERS
+   ========================================================= */
 
 function drinkGameLevel() {
   return DRINK_GAME_LEVELS[
@@ -232,6 +299,15 @@ function drinkGameHasRule(rule) {
 }
 
 
+function drinkGameRandom(array) {
+  return array[
+    Math.floor(
+      Math.random() * array.length
+    )
+  ];
+}
+
+
 function drinkGameClamp(value) {
   return Math.max(
     0,
@@ -240,33 +316,39 @@ function drinkGameClamp(value) {
 }
 
 
+/* =========================================================
+   BUILD UI
+   ========================================================= */
+
 function initDrinkGame() {
   const mount =
-    document.querySelector("#drinkGame");
+    document.querySelector(
+      "#drinkGame"
+    );
 
   if (!mount) {
     return;
   }
 
 
-  /* =========================================
-     TEASER
-     ========================================= */
+  /* -------------------------------------------------------
+     OLDALON LÉVŐ INDÍTÓ KÁRTYA
+     ------------------------------------------------------- */
 
   mount.innerHTML = `
     <div class="drink-game-teaser">
 
-      <div class="drink-game-teaser__content">
+      <div class="drink-game-teaser__main">
 
         <div class="drink-game-teaser__icon">
           🍺
         </div>
 
-        <div class="drink-game-teaser__text">
+        <div>
 
-          <p class="section-kicker">
+          <span>
             KOCSMAI KIHÍVÁS
-          </p>
+          </span>
 
           <h2>
             Kiissza előbb?
@@ -274,7 +356,7 @@ function initDrinkGame() {
 
           <p>
             8 ellenfél · egy élet ·
-            ha kikapsz, kezdheted elölről.
+            bukás = vissza az elejére
           </p>
 
         </div>
@@ -283,32 +365,38 @@ function initDrinkGame() {
 
 
       <button
-        class="drink-game-launch"
         id="openDrinkGame"
+        class="drink-game-launch"
         type="button"
       >
+
         <span>
-          JÁTÉK INDÍTÁSA
+          🎮 JÁTÉK INDÍTÁSA
         </span>
 
         <strong>
           🍺 VS 🍺
         </strong>
+
       </button>
 
     </div>
   `;
 
 
-  /* =========================================
-     MODAL
-     ========================================= */
+  /* -------------------------------------------------------
+     FULLSCREEN MODAL
+     ------------------------------------------------------- */
 
   const modal =
     document.createElement("div");
 
-  modal.id = "drinkGameModal";
-  modal.className = "drink-game-modal";
+  modal.id =
+    "drinkGameModal";
+
+  modal.className =
+    "drink-game-modal";
+
   modal.hidden = true;
 
   modal.setAttribute(
@@ -330,16 +418,18 @@ function initDrinkGame() {
   modal.innerHTML = `
     <div class="drink-game-screen">
 
-      <div class="drink-game-topbar">
+      <header class="drink-game-topbar">
 
         <div>
-          <span class="drink-game-topbar__small">
+
+          <small>
             KIISSZA ELŐBB?
-          </span>
+          </small>
 
           <strong>
             Kocsmai ranglétra
           </strong>
+
         </div>
 
 
@@ -352,32 +442,48 @@ function initDrinkGame() {
           ×
         </button>
 
-      </div>
+      </header>
 
 
       <main class="drink-game-content">
 
-        <section class="drink-game-rank">
+        <!-- HUD -->
 
-          <div>
+        <section class="drink-game-hud">
+
+          <div class="drink-game-hud__level">
 
             <span>
-              Jelenlegi rang
+              SZINT
             </span>
 
-            <strong id="drinkPlayerRank">
+            <strong>
+              <span id="drinkLevelNumber">
+                1
+              </span>
+              / 8
+            </strong>
+
+          </div>
+
+
+          <div class="drink-game-hud__middle">
+
+            <span id="drinkPlayerRank">
               Kezdő kortyoló
+            </span>
+
+            <strong id="drinkChallengeName">
+              Bemelegítés
             </strong>
 
           </div>
 
 
-          <div class="drink-game-level">
-            LVL
-            <strong id="drinkLevelNumber">
-              1
-            </strong>
-          </div>
+          <div
+            id="drinkRules"
+            class="drink-game-rules"
+          ></div>
 
 
           <div class="drink-game-progress">
@@ -389,44 +495,28 @@ function initDrinkGame() {
 
           </div>
 
-
-          <small id="drinkNextRank">
-            Következő rang:
-            Kezdő alkesz
-          </small>
-
         </section>
 
 
-        <section class="drink-game-challenge">
+        <!-- ARENA -->
 
-          <div>
-            <span>
-              AKTÍV KIHÍVÁS
-            </span>
-
-            <strong id="drinkChallengeName">
-              Bemelegítés
-            </strong>
-          </div>
-
-          <div
-            id="drinkRules"
-            class="drink-game-rules"
-          ></div>
-
-        </section>
-
-
-        <section class="drink-game-versus">
+        <section
+          id="drinkGameArena"
+          class="drink-game-arena"
+        >
 
           <!-- PLAYER -->
 
-          <article class="drink-player-card">
+          <article class="drink-fighter">
 
-            <div class="drink-game-person">
+            <div class="drink-fighter__head">
+
+              <div class="drink-avatar">
+                😎
+              </div>
 
               <div>
+
                 <span>
                   TE
                 </span>
@@ -434,11 +524,8 @@ function initDrinkGame() {
                 <strong>
                   Játékos
                 </strong>
-              </div>
 
-              <small id="drinkPlayerWins">
-                0 győzelem
-              </small>
+              </div>
 
             </div>
 
@@ -452,8 +539,16 @@ function initDrinkGame() {
                 id="drinkPlayerLiquid"
                 class="drink-liquid"
               >
+
                 <div class="drink-foam"></div>
+
+                <i class="drink-bubble drink-bubble--1"></i>
+                <i class="drink-bubble drink-bubble--2"></i>
+                <i class="drink-bubble drink-bubble--3"></i>
+                <i class="drink-bubble drink-bubble--4"></i>
+
               </div>
+
 
               <strong
                 id="drinkPlayerPercent"
@@ -467,16 +562,35 @@ function initDrinkGame() {
           </article>
 
 
+          <!-- VS -->
+
           <div class="drink-game-vs">
-            VS
+            <span>
+              VS
+            </span>
           </div>
 
 
           <!-- ENEMY -->
 
-          <article class="drink-enemy-card">
+          <article
+            class="
+              drink-fighter
+              drink-fighter--enemy
+            "
+          >
 
-            <div class="drink-game-person">
+            <div class="drink-fighter__head">
+
+              <div
+                id="drinkEnemyEmoji"
+                class="
+                  drink-avatar
+                  drink-avatar--enemy
+                "
+              >
+                🥴
+              </div>
 
               <div>
 
@@ -488,16 +602,12 @@ function initDrinkGame() {
                   Bulcsú
                 </strong>
 
+                <small id="drinkEnemyRank">
+                  Csöves alkesz
+                </small>
+
               </div>
 
-            </div>
-
-
-            <div
-              id="drinkEnemyRank"
-              class="drink-enemy-rank"
-            >
-              Csöves alkesz
             </div>
 
 
@@ -507,8 +617,16 @@ function initDrinkGame() {
                 id="drinkEnemyLiquid"
                 class="drink-liquid"
               >
+
                 <div class="drink-foam"></div>
+
+                <i class="drink-bubble drink-bubble--1"></i>
+                <i class="drink-bubble drink-bubble--2"></i>
+                <i class="drink-bubble drink-bubble--3"></i>
+                <i class="drink-bubble drink-bubble--4"></i>
+
               </div>
+
 
               <strong
                 id="drinkEnemyPercent"
@@ -521,76 +639,89 @@ function initDrinkGame() {
 
           </article>
 
+
+          <!-- JÁTÉK KÖZBENI BESZÓLÁS -->
+
+          <div
+            id="drinkArenaTaunt"
+            class="drink-arena-taunt"
+            aria-live="polite"
+          >
+            <span
+              id="drinkArenaTauntText"
+            ></span>
+          </div>
+
+
+          <!-- START / NEXT / LOSS OVERLAY -->
+
+          <div
+            id="drinkActionOverlay"
+            class="
+              drink-action-overlay
+              is-visible
+            "
+          >
+
+            <div class="drink-action-box">
+
+              <strong
+                id="drinkActionTitle"
+                class="drink-action-title"
+                hidden
+              ></strong>
+
+              <span
+                id="drinkActionHint"
+                class="drink-action-hint"
+              >
+                EGY ÉLETED VAN
+              </span>
+
+              <button
+                id="drinkStartButton"
+                class="drink-start-button"
+                type="button"
+              >
+                KÖR INDÍTÁSA
+              </button>
+
+            </div>
+
+          </div>
+
         </section>
 
 
+        <!-- MESSAGE BAR -->
+
         <section
-          id="drinkStatus"
-          class="drink-game-status"
+          id="drinkMessage"
+          class="drink-game-message"
           aria-live="polite"
         >
 
-          <strong id="drinkSignal">
-            KÉSZ?
-          </strong>
+          <div>
 
-          <span id="drinkStatusText">
-            Egy vereség és visszaesel
-            az első szintre.
-          </span>
+            <strong id="drinkSignal">
+              KÉSZ?
+            </strong>
 
-        </section>
+            <span id="drinkStatusText">
+              Egy vereség és vissza az első szintre.
+            </span>
+
+          </div>
 
 
-        <section
-          id="drinkTauntBox"
-          class="drink-game-taunt"
-          aria-live="polite"
-        >
-
-          <strong id="drinkTaunt">
+          <em id="drinkTaunt">
             A kocsma még hisz benned.
-          </strong>
+          </em>
 
         </section>
 
 
-        <section class="drink-game-stats">
-
-          <div>
-            <strong id="drinkTapCount">
-              0
-            </strong>
-
-            <span>
-              korty
-            </span>
-          </div>
-
-
-          <div>
-            <strong id="drinkPenaltyCount">
-              0
-            </strong>
-
-            <span>
-              hiba
-            </span>
-          </div>
-
-
-          <div>
-            <strong id="drinkCombo">
-              0×
-            </strong>
-
-            <span>
-              combo
-            </span>
-          </div>
-
-        </section>
-
+        <!-- KORTY -->
 
         <button
           id="drinkSipButton"
@@ -601,32 +732,32 @@ function initDrinkGame() {
           KORTY! 🍺
         </button>
 
-
-        <button
-          id="drinkStartButton"
-          class="drink-start-button"
-          type="button"
-        >
-          KÖR INDÍTÁSA
-        </button>
-
       </main>
 
     </div>
   `;
 
 
-  document.body.appendChild(modal);
+  document.body.appendChild(
+    modal
+  );
 
 
   bindDrinkGameEvents();
-  resetDrinkGame(false);
+
+  resetDrinkGame();
 }
 
 
+/* =========================================================
+   EVENTS
+   ========================================================= */
+
 function bindDrinkGameEvents() {
   document
-    .querySelector("#openDrinkGame")
+    .querySelector(
+      "#openDrinkGame"
+    )
     ?.addEventListener(
       "click",
       openDrinkGame
@@ -634,7 +765,9 @@ function bindDrinkGameEvents() {
 
 
   document
-    .querySelector("#closeDrinkGame")
+    .querySelector(
+      "#closeDrinkGame"
+    )
     ?.addEventListener(
       "click",
       closeDrinkGame
@@ -642,7 +775,9 @@ function bindDrinkGameEvents() {
 
 
   document
-    .querySelector("#drinkStartButton")
+    .querySelector(
+      "#drinkStartButton"
+    )
     ?.addEventListener(
       "click",
       handleDrinkGameStart
@@ -650,7 +785,9 @@ function bindDrinkGameEvents() {
 
 
   document
-    .querySelector("#drinkSipButton")
+    .querySelector(
+      "#drinkSipButton"
+    )
     ?.addEventListener(
       "click",
       handleDrinkSip
@@ -665,6 +802,7 @@ function bindDrinkGameEvents() {
           "#drinkGameModal"
         );
 
+
       if (
         event.key === "Escape" &&
         modal &&
@@ -677,53 +815,72 @@ function bindDrinkGameEvents() {
 }
 
 
+/* =========================================================
+   OPEN / CLOSE
+   ========================================================= */
+
 function openDrinkGame() {
   const modal =
     document.querySelector(
       "#drinkGameModal"
     );
 
+
   if (!modal) {
     return;
   }
 
+
   modal.hidden = false;
+
 
   document.body.classList.add(
     "drink-game-open"
   );
 
-  resetDrinkGame(false);
 
-  requestAnimationFrame(() => {
-    document
-      .querySelector(
-        "#closeDrinkGame"
-      )
-      ?.focus();
-  });
+  resetDrinkGame();
+
+
+  requestAnimationFrame(
+    () => {
+      document
+        .querySelector(
+          "#drinkStartButton"
+        )
+        ?.focus();
+    }
+  );
 }
 
 
 function closeDrinkGame() {
   clearDrinkGameTimers();
 
+
   drinkGame.active = false;
+
 
   const modal =
     document.querySelector(
       "#drinkGameModal"
     );
 
+
   if (modal) {
     modal.hidden = true;
   }
+
 
   document.body.classList.remove(
     "drink-game-open"
   );
 }
 
+
+/* =========================================================
+   TIMERS
+   ========================================================= */
 
 function clearDrinkGameTimers() {
   clearInterval(
@@ -742,13 +899,27 @@ function clearDrinkGameTimers() {
     drinkGame.countdownTimer
   );
 
+  clearTimeout(
+    drinkGame.banterTimer
+  );
+
+  clearTimeout(
+    drinkGame.tauntHideTimer
+  );
+
 
   drinkGame.cpuTimer = null;
   drinkGame.trapTimer = null;
   drinkGame.slowTimer = null;
   drinkGame.countdownTimer = null;
+  drinkGame.banterTimer = null;
+  drinkGame.tauntHideTimer = null;
 }
 
+
+/* =========================================================
+   RENDER
+   ========================================================= */
 
 function renderDrinkGame() {
   const level =
@@ -766,8 +937,17 @@ function renderDrinkGame() {
     );
 
 
+  if (
+    !playerLiquid ||
+    !enemyLiquid
+  ) {
+    return;
+  }
+
+
   playerLiquid.style.height =
     `${drinkGame.player}%`;
+
 
   enemyLiquid.style.height =
     `${drinkGame.enemy}%`;
@@ -776,49 +956,29 @@ function renderDrinkGame() {
   document.querySelector(
     "#drinkPlayerPercent"
   ).textContent =
-    `${Math.ceil(drinkGame.player)}%`;
+    `${Math.ceil(
+      drinkGame.player
+    )}%`;
 
 
   document.querySelector(
     "#drinkEnemyPercent"
   ).textContent =
-    `${Math.ceil(drinkGame.enemy)}%`;
-
-
-  document.querySelector(
-    "#drinkPlayerWins"
-  ).textContent =
-    `${drinkGame.wins} győzelem`;
-
-
-  document.querySelector(
-    "#drinkTapCount"
-  ).textContent =
-    drinkGame.taps;
-
-
-  document.querySelector(
-    "#drinkPenaltyCount"
-  ).textContent =
-    drinkGame.penalties;
-
-
-  document.querySelector(
-    "#drinkCombo"
-  ).textContent =
-    `${drinkGame.combo}×`;
-
-
-  document.querySelector(
-    "#drinkPlayerRank"
-  ).textContent =
-    level.playerRank;
+    `${Math.ceil(
+      drinkGame.enemy
+    )}%`;
 
 
   document.querySelector(
     "#drinkLevelNumber"
   ).textContent =
     drinkGame.level + 1;
+
+
+  document.querySelector(
+    "#drinkPlayerRank"
+  ).textContent =
+    level.playerRank;
 
 
   document.querySelector(
@@ -839,31 +999,26 @@ function renderDrinkGame() {
     level.enemy.rank;
 
 
+  document.querySelector(
+    "#drinkEnemyEmoji"
+  ).textContent =
+    level.enemy.emoji;
+
+
   const progress =
     (
-      (drinkGame.level + 1) /
+      (
+        drinkGame.level + 1
+      ) /
       DRINK_GAME_LEVELS.length
-    ) * 100;
+    ) *
+    100;
 
 
   document.querySelector(
     "#drinkRankProgress"
   ).style.width =
     `${progress}%`;
-
-
-  const next =
-    DRINK_GAME_LEVELS[
-      drinkGame.level + 1
-    ];
-
-
-  document.querySelector(
-    "#drinkNextRank"
-  ).textContent =
-    next
-      ? `Következő rang: ${next.playerRank}`
-      : "MAX RANG";
 
 
   const rules =
@@ -882,59 +1037,325 @@ function renderDrinkGame() {
         `
       )
       .join("");
-}
 
 
-function setDrinkStatus(
-  headline,
-  text
-) {
-  document.querySelector(
-    "#drinkSignal"
-  ).textContent =
-    headline;
-
-  document.querySelector(
-    "#drinkStatusText"
-  ).textContent =
-    text;
-}
-
-
-function showDrinkTaunt(text) {
-  const box =
+  const arena =
     document.querySelector(
-      "#drinkTauntBox"
+      "#drinkGameArena"
     );
 
-  document.querySelector(
-    "#drinkTaunt"
-  ).textContent =
-    text;
 
-
-  box.classList.remove(
-    "is-popping"
-  );
-
-  void box.offsetWidth;
-
-  box.classList.add(
-    "is-popping"
+  arena.classList.toggle(
+    "is-boss",
+    drinkGame.level ===
+      DRINK_GAME_LEVELS.length - 1
   );
 }
 
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+function setDrinkStatus(
+  title,
+  text
+) {
+  const signal =
+    document.querySelector(
+      "#drinkSignal"
+    );
+
+  const status =
+    document.querySelector(
+      "#drinkStatusText"
+    );
+
+
+  if (signal) {
+    signal.textContent =
+      title;
+  }
+
+
+  if (status) {
+    status.textContent =
+      text;
+  }
+}
+
+
+/* =========================================================
+   BESZÓLÁSOK
+   ========================================================= */
+
+function showDrinkTaunt(text) {
+  const message =
+    document.querySelector(
+      "#drinkMessage"
+    );
+
+  const normalTaunt =
+    document.querySelector(
+      "#drinkTaunt"
+    );
+
+
+  if (normalTaunt) {
+    normalTaunt.textContent =
+      text;
+  }
+
+
+  if (message) {
+    message.classList.remove(
+      "is-popping"
+    );
+
+    void message.offsetWidth;
+
+    message.classList.add(
+      "is-popping"
+    );
+  }
+
+
+  showDrinkArenaTaunt(text);
+}
+
+
+function showDrinkArenaTaunt(text) {
+  const bubble =
+    document.querySelector(
+      "#drinkArenaTaunt"
+    );
+
+  const textElement =
+    document.querySelector(
+      "#drinkArenaTauntText"
+    );
+
+
+  if (
+    !bubble ||
+    !textElement
+  ) {
+    return;
+  }
+
+
+  clearTimeout(
+    drinkGame.tauntHideTimer
+  );
+
+
+  textElement.textContent =
+    text;
+
+
+  bubble.classList.remove(
+    "is-visible"
+  );
+
+
+  void bubble.offsetWidth;
+
+
+  bubble.classList.add(
+    "is-visible"
+  );
+
+
+  drinkGame.tauntHideTimer =
+    setTimeout(
+      () => {
+        bubble.classList.remove(
+          "is-visible"
+        );
+      },
+      1900
+    );
+}
+
+
+function scheduleDrinkBanter() {
+  clearTimeout(
+    drinkGame.banterTimer
+  );
+
+
+  if (!drinkGame.active) {
+    return;
+  }
+
+
+  drinkGame.banterTimer =
+    setTimeout(
+      () => {
+        if (!drinkGame.active) {
+          return;
+        }
+
+
+        if (!drinkGame.trap) {
+          const enemy =
+            drinkGameLevel().enemy;
+
+
+          const text =
+            drinkGameRandom(
+              DRINK_GAME_BANTER
+            );
+
+
+          showDrinkArenaTaunt(
+            `${enemy.name}: „${text}”`
+          );
+        }
+
+
+        scheduleDrinkBanter();
+      },
+      2300 +
+        Math.random() * 2100
+    );
+}
+
+
+/* =========================================================
+   CENTRAL ACTION OVERLAY
+   ========================================================= */
+
+function showDrinkAction(
+  label,
+  hint = "",
+  title = "",
+  danger = false
+) {
+  const overlay =
+    document.querySelector(
+      "#drinkActionOverlay"
+    );
+
+  const titleElement =
+    document.querySelector(
+      "#drinkActionTitle"
+    );
+
+  const hintElement =
+    document.querySelector(
+      "#drinkActionHint"
+    );
+
+  const button =
+    document.querySelector(
+      "#drinkStartButton"
+    );
+
+
+  if (!overlay) {
+    return;
+  }
+
+
+  if (titleElement) {
+    titleElement.textContent =
+      title;
+
+    titleElement.hidden =
+      !title;
+  }
+
+
+  if (hintElement) {
+    hintElement.textContent =
+      hint;
+  }
+
+
+  if (button) {
+    button.textContent =
+      label;
+  }
+
+
+  overlay.classList.toggle(
+    "is-danger",
+    danger
+  );
+
+
+  overlay.classList.add(
+    "is-visible"
+  );
+}
+
+
+function hideDrinkAction() {
+  const overlay =
+    document.querySelector(
+      "#drinkActionOverlay"
+    );
+
+
+  if (!overlay) {
+    return;
+  }
+
+
+  overlay.classList.remove(
+    "is-visible",
+    "is-danger"
+  );
+}
+
+
+/* =========================================================
+   KORTY BUTTON
+   ========================================================= */
+
+function setDrinkSipVisible(
+  visible
+) {
+  const button =
+    document.querySelector(
+      "#drinkSipButton"
+    );
+
+
+  if (!button) {
+    return;
+  }
+
+
+  button.disabled =
+    !visible;
+
+
+  button.classList.toggle(
+    "is-visible",
+    visible
+  );
+}
+
+
+/* =========================================================
+   PENALTY
+   ========================================================= */
 
 function drinkPenalty(
   message,
   amount
 ) {
   drinkGame.penalties += 1;
+
   drinkGame.combo = 0;
+
 
   drinkGame.player =
     drinkGameClamp(
-      drinkGame.player + amount
+      drinkGame.player +
+        amount
     );
 
 
@@ -943,19 +1364,22 @@ function drinkPenalty(
       "#drinkPlayerGlass"
     );
 
-  glass.classList.remove(
-    "is-shaking"
-  );
 
-  void glass.offsetWidth;
+  if (glass) {
+    glass.classList.remove(
+      "is-shaking"
+    );
 
-  glass.classList.add(
-    "is-shaking"
-  );
+    void glass.offsetWidth;
+
+    glass.classList.add(
+      "is-shaking"
+    );
+  }
 
 
   setDrinkStatus(
-    "HIBA!",
+    "HIBA! 💀",
     message
   );
 
@@ -970,6 +1394,40 @@ function drinkPenalty(
   renderDrinkGame();
 }
 
+
+/* =========================================================
+   SIP ANIMATION
+   ========================================================= */
+
+function animateGoodSip() {
+  const glass =
+    document.querySelector(
+      "#drinkPlayerGlass"
+    );
+
+
+  if (!glass) {
+    return;
+  }
+
+
+  glass.classList.remove(
+    "is-sipping"
+  );
+
+
+  void glass.offsetWidth;
+
+
+  glass.classList.add(
+    "is-sipping"
+  );
+}
+
+
+/* =========================================================
+   STOP RULE
+   ========================================================= */
 
 function scheduleDrinkTrap() {
   clearTimeout(
@@ -996,9 +1454,25 @@ function scheduleDrinkTrap() {
         drinkGame.trap = true;
 
 
+        const arena =
+          document.querySelector(
+            "#drinkGameArena"
+          );
+
+
+        arena?.classList.add(
+          "is-stop"
+        );
+
+
         setDrinkStatus(
           "NE NYOMD! ✋",
-          "Piros lámpa!"
+          "PIROS LÁMPA"
+        );
+
+
+        showDrinkArenaTaunt(
+          "MOST NE NYOMD, TE ÁLLAT. ✋"
         );
 
 
@@ -1012,8 +1486,13 @@ function scheduleDrinkTrap() {
             drinkGame.trap = false;
 
 
+            arena?.classList.remove(
+              "is-stop"
+            );
+
+
             setDrinkStatus(
-              "KORTY!",
+              "KORTY! 🍺",
               "Mehet tovább."
             );
 
@@ -1021,14 +1500,20 @@ function scheduleDrinkTrap() {
             scheduleDrinkTrap();
           },
           650 +
-            Math.random() * 650
+            Math.random() *
+              650
         );
       },
       1200 +
-        Math.random() * 2000
+        Math.random() *
+          2000
     );
 }
 
+
+/* =========================================================
+   SLOW RULE
+   ========================================================= */
 
 function startDrinkSlowRule() {
   clearInterval(
@@ -1071,6 +1556,10 @@ function startDrinkSlowRule() {
 }
 
 
+/* =========================================================
+   ENEMY
+   ========================================================= */
+
 function startDrinkEnemy() {
   const level =
     drinkGameLevel();
@@ -1089,7 +1578,8 @@ function startDrinkEnemy() {
             drinkGame.enemy -
               (
                 1.45 +
-                Math.random() * 1.45
+                Math.random() *
+                  1.45
               )
           );
 
@@ -1108,6 +1598,10 @@ function startDrinkEnemy() {
 }
 
 
+/* =========================================================
+   ROUND START
+   ========================================================= */
+
 function beginDrinkRound() {
   clearDrinkGameTimers();
 
@@ -1116,39 +1610,60 @@ function beginDrinkRound() {
   drinkGame.enemy = 100;
 
   drinkGame.taps = 0;
-  drinkGame.penalties = 0;
   drinkGame.combo = 0;
+  drinkGame.penalties = 0;
 
   drinkGame.trap = false;
   drinkGame.active = false;
+
   drinkGame.gameOver = false;
+  drinkGame.roundWon = false;
 
   drinkGame.lastTap = 0;
+
   drinkGame.lastGoodTap =
     performance.now();
 
 
-  const button =
+  const arena =
     document.querySelector(
-      "#drinkSipButton"
-    );
-
-  const startButton =
-    document.querySelector(
-      "#drinkStartButton"
+      "#drinkGameArena"
     );
 
 
-  button.disabled = true;
-  startButton.disabled = true;
+  arena?.classList.remove(
+    "is-stop"
+  );
 
+
+  hideDrinkAction();
+
+  setDrinkSipVisible(false);
 
   renderDrinkGame();
 
 
-  showDrinkTaunt(
-    `${drinkGameLevel().enemy.name} vár rád.`
-  );
+  const level =
+    drinkGameLevel();
+
+  const enemy =
+    level.enemy;
+
+
+  if (
+    drinkGame.level ===
+    DRINK_GAME_LEVELS.length - 1
+  ) {
+    showDrinkTaunt(
+      drinkGameRandom(
+        DRINK_GAME_BOSS_TAUNTS
+      )
+    );
+  } else {
+    showDrinkTaunt(
+      `${enemy.name} már vár rád.`
+    );
+  }
 
 
   let countdown = 3;
@@ -1156,7 +1671,7 @@ function beginDrinkRound() {
 
   setDrinkStatus(
     countdown,
-    drinkGameLevel().name
+    `${enemy.name} · ${enemy.rank}`
   );
 
 
@@ -1166,10 +1681,12 @@ function beginDrinkRound() {
         countdown -= 1;
 
 
-        if (countdown > 0) {
+        if (
+          countdown > 0
+        ) {
           setDrinkStatus(
             countdown,
-            drinkGameLevel().name
+            `${enemy.name} · ${enemy.rank}`
           );
 
           return;
@@ -1187,27 +1704,35 @@ function beginDrinkRound() {
 
         drinkGame.active = true;
 
+
         drinkGame.lastGoodTap =
           performance.now();
 
 
         setDrinkStatus(
-          "KORTY!",
-          `${drinkGameLevel().enemy.name} ellen rajta!`
+          "KORTY! 🍺",
+          `${enemy.name} ellen rajta!`
         );
 
 
-        button.disabled = false;
-
+        setDrinkSipVisible(true);
 
         startDrinkEnemy();
+
         scheduleDrinkTrap();
+
         startDrinkSlowRule();
+
+        scheduleDrinkBanter();
       },
       650
     );
 }
 
+
+/* =========================================================
+   PLAYER TAP
+   ========================================================= */
 
 function handleDrinkSip() {
   if (!drinkGame.active) {
@@ -1222,7 +1747,9 @@ function handleDrinkSip() {
   drinkGame.taps += 1;
 
 
-  /* STOP */
+  /* -------------------------------------------------------
+     STOP
+     ------------------------------------------------------- */
 
   if (drinkGame.trap) {
     drinkPenalty(
@@ -1230,54 +1757,76 @@ function handleDrinkSip() {
       10
     );
 
-    drinkGame.lastTap = now;
+
+    drinkGame.lastTap =
+      now;
+
 
     return;
   }
 
 
-  /* TÚL GYORS */
+  /* -------------------------------------------------------
+     TÚL GYORS
+     ------------------------------------------------------- */
 
   if (
     drinkGameHasRule("fast") &&
     drinkGame.lastTap &&
-    now - drinkGame.lastTap < 165
+    now -
+      drinkGame.lastTap <
+      165
   ) {
     drinkPenalty(
-      "Úgy vered a gombot, mint a liftet: +7%",
+      "Úgy vered, mint a liftgombot: +7%",
       7
     );
 
-    drinkGame.lastTap = now;
+
+    drinkGame.lastTap =
+      now;
+
 
     return;
   }
 
 
-  /* MINDEN MÁSODIK */
+  /* -------------------------------------------------------
+     MINDEN MÁSODIK
+     ------------------------------------------------------- */
 
   if (
     drinkGameHasRule("second") &&
-    drinkGame.taps % 2 === 0
+    drinkGame.taps %
+      2 ===
+      0
   ) {
     drinkPenalty(
-      "A második korty átkozott: +5%",
+      "Az átkozott második korty: +5%",
       5
     );
 
-    drinkGame.lastTap = now;
 
-    drinkGame.lastGoodTap = now;
+    drinkGame.lastTap =
+      now;
+
+
+    drinkGame.lastGoodTap =
+      now;
+
 
     return;
   }
 
 
-  /* JÓ KORTY */
+  /* -------------------------------------------------------
+     JÓ KORTY
+     ------------------------------------------------------- */
 
   let drain =
     3.4 +
-    Math.random() * 1.8;
+    Math.random() *
+      1.8;
 
 
   drinkGame.combo += 1;
@@ -1299,12 +1848,20 @@ function handleDrinkSip() {
 
   drinkGame.player =
     drinkGameClamp(
-      drinkGame.player - drain
+      drinkGame.player -
+        drain
     );
 
 
-  drinkGame.lastTap = now;
-  drinkGame.lastGoodTap = now;
+  drinkGame.lastTap =
+    now;
+
+
+  drinkGame.lastGoodTap =
+    now;
+
+
+  animateGoodSip();
 
 
   if (
@@ -1314,8 +1871,25 @@ function handleDrinkSip() {
   ) {
     showDrinkTaunt(
       drinkGameRandom(
-        DRINK_GAME_WIN_TAUNTS
+        DRINK_GAME_GOOD_TAUNTS
       )
+    );
+  }
+
+
+  if (
+    drinkGame.combo >= 12
+  ) {
+    setDrinkStatus(
+      "🔥 ŐRÜLT TEMPÓ",
+      "Ne állj le!"
+    );
+  } else if (
+    drinkGame.combo >= 6
+  ) {
+    setDrinkStatus(
+      "🔥 SZÉP",
+      "Megvan a ritmus!"
     );
   }
 
@@ -1331,6 +1905,10 @@ function handleDrinkSip() {
 }
 
 
+/* =========================================================
+   ROUND WIN
+   ========================================================= */
+
 function winDrinkRound() {
   if (!drinkGame.active) {
     return;
@@ -1338,22 +1916,22 @@ function winDrinkRound() {
 
 
   drinkGame.active = false;
-  drinkGame.wins += 1;
+
+  drinkGame.roundWon = true;
 
 
   clearDrinkGameTimers();
 
-
-  document.querySelector(
-    "#drinkSipButton"
-  ).disabled = true;
+  setDrinkSipVisible(false);
 
 
   const level =
     drinkGameLevel();
 
 
-  /* BOSS LEGYŐZVE */
+  /* -------------------------------------------------------
+     BOSS LEGYŐZVE
+     ------------------------------------------------------- */
 
   if (
     drinkGame.level ===
@@ -1363,7 +1941,7 @@ function winDrinkRound() {
 
 
     setDrinkStatus(
-      "LEGENDÁS MÁJLOVAG 👑",
+      "GYŐZELEM 👑",
       `${level.enemy.name}, a ${level.enemy.rank} is elbukott.`
     );
 
@@ -1373,19 +1951,12 @@ function winDrinkRound() {
     );
 
 
-    const button =
-      document.querySelector(
-        "#drinkStartButton"
-      );
+    showDrinkAction(
+      "ÚJ MENET",
+      "🏆 MIND A 8 ELLENFÉL ELBUKOTT",
+      "LEGENDÁS MÁJLOVAG 👑"
+    );
 
-
-    button.disabled = false;
-
-    button.textContent =
-      "ÚJ MENET";
-
-
-    renderDrinkGame();
 
     return;
   }
@@ -1398,32 +1969,29 @@ function winDrinkRound() {
 
 
   setDrinkStatus(
-    "SZINT TELJESÍTVE! 🏆",
-    `${level.enemy.name} elbukott. Következik ${next.enemy.name}.`
+    "ELVERTED! 🏆",
+    `${level.enemy.name} kiesett.`
   );
 
 
   showDrinkTaunt(
     drinkGameRandom(
-      DRINK_GAME_WIN_TAUNTS
+      DRINK_GAME_GOOD_TAUNTS
     )
   );
 
 
-  document.querySelector(
-    "#drinkStartButton"
-  ).disabled = false;
-
-
-  document.querySelector(
-    "#drinkStartButton"
-  ).textContent =
-    "KÖVETKEZŐ SZINT";
-
-
-  renderDrinkGame();
+  showDrinkAction(
+    "KÖVETKEZŐ SZINT",
+    `KÖVETKEZIK: ${next.enemy.name.toUpperCase()}`,
+    `${level.enemy.name.toUpperCase()} ELBUKOTT`
+  );
 }
 
+
+/* =========================================================
+   LOSS
+   ========================================================= */
 
 function loseDrinkGame() {
   if (!drinkGame.active) {
@@ -1432,47 +2000,56 @@ function loseDrinkGame() {
 
 
   drinkGame.active = false;
+
   drinkGame.gameOver = true;
+
+  drinkGame.roundWon = false;
 
 
   clearDrinkGameTimers();
 
-
-  document.querySelector(
-    "#drinkSipButton"
-  ).disabled = true;
+  setDrinkSipVisible(false);
 
 
   const level =
     drinkGameLevel();
 
 
+  const insult =
+    drinkGameRandom(
+      DRINK_GAME_LOSS_TAUNTS
+    );
+
+
   setDrinkStatus(
-    "MEGBUKTÁL. 💀",
+    "KIKAPTÁL 💀",
     `${level.enemy.name}, a ${level.enemy.rank} elvert.`
   );
 
 
-  showDrinkTaunt(
-    `SZÉGYELLD MAGAD. ${level.enemy.name.toUpperCase()} ELVERT. VISSZA AZ ELSŐ SZINTRE. 😭`
-  );
-
-
-  const button =
+  const bubble =
     document.querySelector(
-      "#drinkStartButton"
+      "#drinkArenaTaunt"
     );
 
 
-  button.disabled = false;
+  bubble?.classList.remove(
+    "is-visible"
+  );
 
-  button.textContent =
-    "ÚJRAKEZDEM AZ ELEJÉRŐL";
 
-
-  renderDrinkGame();
+  showDrinkAction(
+    "ÚJRAKEZDEM AZ ELEJÉRŐL",
+    `${level.enemy.name.toUpperCase()} ELVERT · VISSZA AZ 1. SZINTRE`,
+    `KIKAPTÁL 💀\n${insult}`,
+    true
+  );
 }
 
+
+/* =========================================================
+   ACTION BUTTON
+   ========================================================= */
 
 function handleDrinkGameStart() {
   if (drinkGame.active) {
@@ -1480,21 +2057,28 @@ function handleDrinkGameStart() {
   }
 
 
-  /* bukás vagy teljes végigjátszás */
+  /* -------------------------------------------------------
+     TELJES BUKÁS VAGY BOSS UTÁN
+     ------------------------------------------------------- */
 
   if (drinkGame.gameOver) {
-    resetDrinkGame(true);
+    resetDrinkGame();
+
+    beginDrinkRound();
 
     return;
   }
 
 
-  /* következő szint */
+  /* -------------------------------------------------------
+     KÖVETKEZŐ SZINT
+     ------------------------------------------------------- */
 
-  if (
-    drinkGame.wins > 0
-  ) {
+  if (drinkGame.roundWon) {
     drinkGame.level += 1;
+
+    drinkGame.roundWon =
+      false;
   }
 
 
@@ -1502,9 +2086,11 @@ function handleDrinkGameStart() {
 }
 
 
-function resetDrinkGame(
-  autoStart = false
-) {
+/* =========================================================
+   RESET
+   ========================================================= */
+
+function resetDrinkGame() {
   clearDrinkGameTimers();
 
 
@@ -1513,62 +2099,71 @@ function resetDrinkGame(
   drinkGame.player = 100;
   drinkGame.enemy = 100;
 
-  drinkGame.wins = 0;
-
-  drinkGame.taps = 0;
-  drinkGame.penalties = 0;
-  drinkGame.combo = 0;
-
   drinkGame.active = false;
   drinkGame.trap = false;
+
   drinkGame.gameOver = false;
+  drinkGame.roundWon = false;
+
+  drinkGame.taps = 0;
+  drinkGame.combo = 0;
+  drinkGame.penalties = 0;
 
   drinkGame.lastTap = 0;
   drinkGame.lastGoodTap = 0;
 
 
-  const sip =
+  const arena =
     document.querySelector(
-      "#drinkSipButton"
+      "#drinkGameArena"
     );
 
 
-  const start =
+  arena?.classList.remove(
+    "is-stop"
+  );
+
+
+  const arenaTaunt =
     document.querySelector(
-      "#drinkStartButton"
+      "#drinkArenaTaunt"
     );
 
 
-  if (sip) {
-    sip.disabled = true;
-  }
+  arenaTaunt?.classList.remove(
+    "is-visible"
+  );
 
 
-  if (start) {
-    start.disabled = false;
-
-    start.textContent =
-      "KÖR INDÍTÁSA";
-  }
+  setDrinkSipVisible(false);
 
 
   setDrinkStatus(
     "KÉSZ?",
-    "Egy vereség és visszaesel az első szintre."
+    "Egy vereség és vissza az első szintre."
   );
 
 
-  showDrinkTaunt(
-    "A kocsma még hisz benned."
+  const bottomTaunt =
+    document.querySelector(
+      "#drinkTaunt"
+    );
+
+
+  if (bottomTaunt) {
+    bottomTaunt.textContent =
+      "A kocsma még hisz benned.";
+  }
+
+
+  showDrinkAction(
+    "KÖR INDÍTÁSA",
+    "8 ELLENFÉL · EGY ÉLET",
+    "KIISSZA ELŐBB?"
   );
 
 
   renderDrinkGame();
-
-
-  if (autoStart) {
-    beginDrinkRound();
-  }
 }
 
 
