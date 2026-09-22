@@ -1,0 +1,46 @@
+name: Update train prices
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    # Naponta egyszer, 05:00 UTC
+    # Októberben ez kb. 07:00 magyar idő.
+    - cron: "0 5 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install MÁV packages
+        run: npm install --no-save mav-prices@0.7.0 mav-stations@0.7.0
+
+      - name: Fetch Budapest → Vienna prices
+        run: node scripts/update-train-prices.mjs
+
+      - name: Commit updated price data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/train-prices.json
+
+          if git diff --cached --quiet; then
+            echo "Nincs változás."
+            exit 0
+          fi
+
+          git commit -m "Update MÁV train prices"
+          git push
